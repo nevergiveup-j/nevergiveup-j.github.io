@@ -1,0 +1,60 @@
+body, h1, h2, h3, h4, h5, h6, hr, p, blockquote, dl, dt, dd, ul, ol, li, pre, form, fieldset, legend, button, input, textarea, th, td{margin:0;padding:0;}
+body{font: normal 100% 'Microsoft Yahei',Helvetica,Arial,sans-serif;background:#fff;}img{border:0;}a{text-decoration:none;}li{list-style-type:none;}
+b,strong{font-weight:normal;}i{font-style:normal;}
+/*default iphone-ipad css*/
+@media screen and (device-width: 320px),
+    screen and (device-width: 360px),
+	screen and (device-width: 768px){
+	input{
+		-webkit-border-radius:0;
+		-webkit-appearance: none;
+	}		 		
+}
+
+.answer{width:100%;padding-bottom:30px;}
+.answer h2{width:100%;height:44px;line-height:44px;overflow:hidden;font-weight:normal;color:#fff;background:#1abc9c;font-size:100%;}
+.answer h2 span{float:left;padding-left:10px;font-size:1.25em;letter-spacing:0.125em;}
+.answer h2 a{float:right;font-size:0.95em;color:#fff;border-left:1px solid #118f76;}
+.answer h2 a:before{content:'';float:left;height:100%;border-left:1px solid #7ac0b2;}
+.answer h2 a img{float:left;width:11%;vertical-align:middle;margin-top:14px;padding:0 8px;}
+.answer .descript{padding:10px;border-bottom:1px solid #f0f0f0;}
+.descript section header strong{display:block;font-size:1em;}
+.descript section header span{display:block;font-size:0.875em;color:#868686;padding:6px 0;}
+.descript section b{font-size:0.875em;color:#5494ca;}
+.descript section .pic{width:100%;overflow:hidden;padding:10px 0px;display:flex;flex-flow:row wrap;}
+.descript section .pic span{display:block;position:relative;overflow:hidden;width:22%;margin-right:5px;}
+.descript section .pic span img{display:block;width:100%;}
+.descript section .pic span i{display:block;width:24px;height:24px;position:absolute;bottom:-3px;left:-3px;text-align:center;font-size:12px;line-height:22px;color:#fff;background:rgba(67,95,136,0.8);border-radius:24px;}
+.descript section p{padding-bottom:10px;font-size:0.93em;}
+.answer center{display:block;line-height:44px;font-size:0.875em;color:#999;border-bottom:1px solid #f0f0f0;}
+.answer .moreanswer{padding:0 10px;}
+.answer .moreanswer section{display:none;border-top:1px solid #f0f0f0;margin-top:-1px;}
+.answer .moreanswer section header{width:100%;overflow:hidden;line-height:32px;font-size:0.9em;}
+.answer .moreanswer section header strong{float:left;}
+.answer .moreanswer section header span{float:left;padding-left:10px;color:#999;padding-top:2px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;}
+.answer .moreanswer section p{width:100%;overflow:hidden;padding-bottom:12px;font-size:0.875rem;}
+.answer .moreanswer section p i{float:left;width:25px;height:16px;background:#78ccbb;color:#fff;border-radius:4px;text-align:center;font-size:0.75rem;}
+.answer .moreanswer section p a{float:left;width:86%;padding-left:10px;margin-top:-2px;}
+@media screen and (max-width:719px){.answer .moreanswer section header span{width:57%;}}/*宽度小于500px时 绿色*/
+@media screen and (min-width:715px){.answer .moreanswer section header span{width:67%;}}/*宽度大于800px时 红色*/
+.answer .moreanswer .moreMain{margin-top:20px;border-top:2px solid #d8d8d8;}
+.answer .moreanswer .moreMain span{display:block;width:128px;height:32px;line-height:32px;background:#fff;color:#6099cc;margin:-18px auto 0;text-align:center;}
+.downloadApp{padding:20px 10px 0;overflow:hidden;}
+.downloadApp .slA_left{float:left;max-width:36%;}
+.downloadApp .slA_right{float:right;width:62%;}
+.downloadApp .slA_right strong,.downloadApp .slA_right span,.downloadApp .slA_right a{display:block;}
+.downloadApp .slA_right strong{font-size:1em;line-height:2em;}
+.downloadApp .slA_right span{font-size:0.75em;}
+.downloadApp .slA_right a img{display:block;max-width:60%;margin:10px auto 0;}
+
+.singleAnswer{padding:10px 10px 0;}
+.singleAnswer section header{width:100%;overflow:hidden;}
+.singleAnswer section header img,.singleAnswer section header strong,.singleAnswer section header span{float:left;}
+.singleAnswer section header img{width:38px;height:38px;padding-right:10px;}
+.singleAnswer section strong{width:80%;}
+.singleAnswer section span{font-size:0.45em;color:#999;}
+.singleAnswer section .pic{width:100%;overflow:hidden;padding:10px 0px;display:flex;flex-flow:row wrap;}
+.singleAnswer section .pic span{display:block;position:relative;overflow:hidden;width:22%;margin-right:5px;}
+.singleAnswer section .pic span img{display:block;width:100%;}
+.singleAnswer section .pic span i{display:block;width:24px;height:24px;position:absolute;bottom:-3px;left:-3px;text-align:center;font-size:12px;line-height:22px;color:#fff;background:rgba(67,95,136,0.8);border-radius:24px;}
+.singleAnswer section p{padding-bottom:40px;border-bottom:1px solid #d8d8d8;font-size:0.93em;}
