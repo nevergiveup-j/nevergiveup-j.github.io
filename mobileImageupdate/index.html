@@ -7,7 +7,7 @@
 <link rel="stylesheet" href="dist/main.css"/>
 </head>
 <body>
-<input type="file" id="photo" accept="image/*" capture="camera">
+<input type="file" id="photo" accept="image/*">
 
 </body>
 </html>
@@ -18,7 +18,7 @@
 <script>
 	$('#photo').localResizeIMG({
         width: 100,
-        quality: 0.1,
+        quality: 1,
         //before: function (that, blob) {},
         success: function (result) {
             var img = new Image();
