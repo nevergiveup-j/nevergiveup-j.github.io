@@ -55,7 +55,6 @@
 
                 /**
                  * 生成base64
-                 * 兼容修复移动设备需要引入mobileBUGFix.js
                  */
                 var base64 = canvas.toDataURL('image/jpeg', obj.quality || 0.8);
 
