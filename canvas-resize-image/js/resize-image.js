@@ -117,7 +117,7 @@
 
             // 修正图片方向
             if(that.orientation){
-                that.transformCoordinate(canvas, w, h, that.orientation);
+                // that.transformCoordinate(canvas, w, h, that.orientation);
             }
 
             ctx.drawImage(self, 0, 0, w, h);
