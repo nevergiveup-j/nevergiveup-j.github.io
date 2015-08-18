@@ -74,10 +74,9 @@
 
                 
 
-            // EXIF.getData(blob, function(){
-            //     // console.log(this);
-            //     // console.log(EXIF.getTag(this, 'Orientation'));
-            // });
+            EXIF.getData(file, function(){
+                console.log(EXIF.getTag(this, 'Orientation'));
+            });
 
             // 清空临时数据
             this.value = '';
