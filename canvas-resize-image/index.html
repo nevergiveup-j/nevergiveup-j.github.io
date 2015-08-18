@@ -7,16 +7,17 @@
 </head>
 <body>
 <input type="file" id="photo" accept="image/*">
+11
 </body>
 </html>
 <script src="js/zepto.min.js"></script>
 <script src="js/exif.min.js"></script>
 <script src="js/jpeg_encoder_basic.js"></script>
 <script src="js/megapix-image.js"></script>
-<script src="js/resize-image.js?v3"></script>
+<script src="js/resize-image.js?v5"></script>
 <script>
 $('#photo').resizeIMG({
-    width: 200,
+    width: 100,
     quality: 0.8,
     successCallback: function(result){
         console.log(result);
