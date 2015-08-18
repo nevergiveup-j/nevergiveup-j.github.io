@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+<meta charset="UTF-8">
+<title>移动端 image update</title>
+<meta id="viewport" name="viewport" content="initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no">
+</head>
+<body>
+<input type="file" id="photo" accept="image/*" capture="camera">
+<img src="images/pages_1.jpg" id="photos1" alt="">
+</body>
+</html>
+<script src="js/zepto.min.js"></script>
+<script src="js/exif.min.js"></script>
+<script src="js/jpeg_encoder_basic.js"></script>
+<script src="js/megapix-image.js"></script>
+<script src="js/resize-image.js"></script>
+<script>
+$('#photos1').on('click', function(){
+    console.log(EXIF.getData(this));
+})
+
+
+$('#photo').resizeIMG({
+    width: 200,
+    quality: 0.8,
+    successCallback: function(result){
+        console.log(result);
+
+        var img = new Image();
+         img.src = result.base64;
+
+        $('body').append(img);
+    }
+});
+</script>
