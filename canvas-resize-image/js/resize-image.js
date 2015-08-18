@@ -38,6 +38,7 @@
         this.$button = $($this);
 
         this.opts = $.extend(true, {}, defaults, options || {});
+        this.orientation = null;
 
         this.init();
     };
@@ -61,22 +62,13 @@
             URL = window.URL || window.webkitURL;
             blob = URL.createObjectURL(file);
 
+            EXIF.getData(file, function(){
+                that.orientation = EXIF.getTag(file, 'Orientation');
+            });
+
             that.opts.beforeCallback && that.opts.beforeCallback(this, blob, file);
 
             that.base64IMG(blob);
-
-            // console.log(file);
-            // var img = new Image();
-            // img.src = file.name;
-            // img.onload = function(){
-
-            // }
-
-                
-
-            EXIF.getData(file, function(){
-                console.log(EXIF.getTag(this, 'Orientation'));
-            });
 
             // 清空临时数据
             this.value = '';
@@ -96,8 +88,7 @@
             .error(function() {
                 canvasURL(this, blob);
             })
-            .attr('src', blob);    
-
+            .attr('src', blob);        
 
         function canvasURL(self, blob) {
 
@@ -123,6 +114,11 @@
                 width: w,
                 height: h
             });
+
+            // 修正图片方向
+            if(that.orientation){
+                that.transformCoordinate(canvas, w, h, that.orientation);
+            }
 
             ctx.drawImage(self, 0, 0, w, h);
 
@@ -154,9 +150,63 @@
                 clearBase64: base64.substr(base64.indexOf(',') + 1)
             };
 
+            that.orientation = null;
+
             // 执行后函数
             that.opts.successCallback && that.opts.successCallback(result);
         }    
+        
+    };
+
+    /**
+     * 修正图片方向
+     */
+    ResizeIMG.prototype.transformCoordinate = function(canvas, width, height, orientation) {
+           
+        var ctx = canvas.getContext('2d');
+        switch (orientation) {
+            case 1:
+                // nothing
+                break;
+            case 2:
+                // horizontal flip
+                ctx.translate(width, 0);
+                ctx.scale(-1, 1);
+                break;
+            case 3:
+                // 180 rotate left
+                ctx.translate(width, height);
+                ctx.rotate(Math.PI);
+                break;
+            case 4:
+                // vertical flip
+                ctx.translate(0, height);
+                ctx.scale(1, -1);
+                break;
+            case 5:
+                // vertical flip + 90 rotate right
+                ctx.rotate(0.5 * Math.PI);
+                ctx.scale(1, -1);
+                break;
+            case 6:
+                // 90 rotate right
+                ctx.rotate(0.5 * Math.PI);
+                ctx.translate(0, -height);
+                break;
+            case 7:
+                // horizontal flip + 90 rotate right
+                ctx.rotate(0.5 * Math.PI);
+                ctx.translate(width, -height);
+                ctx.scale(-1, 1);
+                break;
+            case 8:
+                // 90 rotate left
+                ctx.rotate(-0.5 * Math.PI);
+                ctx.translate(-width, 0);
+                break;
+            default:
+                break;
+        }
         
     };
 

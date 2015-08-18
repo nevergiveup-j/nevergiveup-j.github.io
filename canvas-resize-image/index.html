@@ -7,7 +7,6 @@
 </head>
 <body>
 <input type="file" id="photo" accept="image/*" capture="camera">
-<img src="images/pages_1.jpg" id="photos1" alt="">
 </body>
 </html>
 <script src="js/zepto.min.js"></script>
@@ -16,13 +15,6 @@
 <script src="js/megapix-image.js"></script>
 <script src="js/resize-image.js"></script>
 <script>
-$('#photos1').on('click', function(e){
-    EXIF.getData(this, function() {
-        console.log(EXIF.pretty(this));
-    });
-})
-
-
 $('#photo').resizeIMG({
     width: 200,
     quality: 0.8,
