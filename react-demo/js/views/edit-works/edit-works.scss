@@ -1,0 +1,88 @@
+/* wroks */
+.edit-works {
+    padding: 20px;
+    .works-list {
+        padding: 12px 20px 0;
+        li {
+            padding: 15px 0;
+        }
+        .title {
+            padding-bottom: 10px;
+            font-size: 14px;
+            font-weight: 400;
+        }
+        .update-file-inner {
+            position: relative;
+            width: 110px;
+            height: 46px;
+            line-height: 46px;
+            overflow: hidden;
+            background: #ff4c05;
+        }
+        .button-file {
+            position: absolute;
+            top: 0;
+            left: 0;
+            z-index: 1;
+            width: 1000%;
+            height: 1000%;
+            font-size: 100em;
+            text-align: right;
+        }
+        .update-text {
+            position: absolute;
+            top: 0;
+            left: 0;
+            bottom: 0;
+            right: 0;
+            width: 100%;
+            height: 100%;
+            font-size: 14px;
+            color: #fff;
+            text-align: center;
+        }
+        .textarea-text {
+            width: 580px;
+            min-height: 125px;
+            padding-top: 5px;
+            padding-bottom: 5px;
+        }
+        .list-title {
+            .input-text {
+                width: 365px;
+            }
+        }
+
+        .update-photo-inner {
+            position: relative;
+            width: 135px;
+            height: 90px;
+            overflow: hidden;
+            border: 1px dashed #c6c6c6;
+            .update-text {
+                padding-top: 15px;
+                color: #b1b1b1;
+                img {
+                    margin-bottom: 5px;
+                }
+            }
+        }
+
+
+        .list-update-video {
+            .input-text {
+                width: 240px;
+                border-right: none;
+            }
+        }
+    }
+    .button-inner {
+        padding: 18px 0 0 20px;
+        margin-top: 30px;
+        border-top: 1px dotted #ebebeb;
+        a {
+            width: 155px;
+            margin-right: 15px;
+        }
+    }
+}

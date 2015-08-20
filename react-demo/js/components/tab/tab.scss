@@ -1,0 +1,24 @@
+/* tab */
+.ui-tab {
+    position: relative;
+    height: 40px;
+    text-align: center;
+    font-size: 16px;
+    border-bottom: 1px solid #e4e4e4;
+    color: #bfc9df;
+    li {
+        float: left;
+        width: 50%;
+    }
+    a {
+        display: inline-block;
+        height: 41px;
+        padding: 0 45px;
+        color: #bfc9df;
+    }
+    .active {
+        position: relative;
+        color: #3b568d;
+        border-bottom: 2px solid #677ca6;
+    }
+}

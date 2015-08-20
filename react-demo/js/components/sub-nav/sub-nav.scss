@@ -1,0 +1,27 @@
+/* sub nav */
+.ui-sub-nav {
+    float: left;
+    width: 200px;
+    font-size: 14px;
+    color: #e1e1e1;
+    li {
+        height: 60px;
+        line-height: 60px;
+        border-bottom: 1px solid #fff;
+    }
+    a {
+        display: block;
+        height: 100%;
+        padding-left: 65px;
+        color: #e1e1e1;
+        &:hover {
+            background: #f2f5fb;
+            color: #677ca6;
+        }
+    }
+    .active,
+    .active:hover {
+        background: #677ca6;
+        color: #fff;
+    }
+}

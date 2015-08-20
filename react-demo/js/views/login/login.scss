@@ -1,0 +1,40 @@
+/* login */
+.login-body {
+    height: 100%;
+
+}
+.login-wrap {
+    height: 100%;
+    .business-login {
+        text-align: center;
+
+        .business-button {
+            margin-top: 50px;
+            text-align: center;
+            a {
+                display: inline-block;
+                width: 100px;
+                height: 100px;
+                margin: 0 18px;
+                line-height: 100px;
+                text-align: center;
+                background: #fff;
+                -webkit-border-radius: 50%;
+                -moz-border-radius: 50%;
+                border-radius: 50%;
+            }
+            .button-weibo {
+                background: #3b568d url(../../../images/login-button-weibo.png) no-repeat center;
+                border: 2px solid #223968;
+            }
+            .button-qq {
+                background: #fff url(../../../images/login-button-qq.png) no-repeat center;
+                border: 2px solid #ffb4d3;
+            }
+            .tips-text {
+                margin-top: 30px;
+                font-size: 14px;
+            }
+        }
+    }
+}

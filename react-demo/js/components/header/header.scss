@@ -1,0 +1,36 @@
+/* header */
+.ui-header {
+    margin-bottom: 20px;
+    background: #fff;
+    font-size: 14px;
+    line-height: 60px;
+    .ui-header-bd {
+        width: 1000px;
+        min-height: 60px;
+        padding: 0 10px 0 30px;
+        margin: 0 auto;
+    }
+    .ui-logo {
+        float: left;
+        img {
+            margin-top: 14px;
+        }
+    }
+    .ui-top-login {
+        float: right;
+        li {
+            float: left;
+            padding: 0 10px;
+        }
+        .avatar {
+            width: 45px;
+            margin-right: 10px;
+            border-radius: 50%;
+        }
+        .button-logout {
+            a {
+                color: #999;
+            }
+        }
+    }
+}

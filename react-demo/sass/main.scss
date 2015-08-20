@@ -1,0 +1,82 @@
+@charset "utf-8";
+/*
+ * @Description:公用样式
+ * @Author: wangjun
+ * @Update: 2015-08-06 15:00
+ */
+
+@import "modules/base";
+@import "vendor/sassCore/core/reset";
+
+body {
+    height: 100%;
+    //background: #f7f7f7;
+}
+
+.fn-fl{
+
+    @include float;
+}
+.fn-fr{
+    @include float(right);
+}
+*, *:before, *:after {
+    @include box-sizing(border-box);
+}
+
+.fn-clearfix {
+    @extend %clearfix;
+}
+
+.fn-hide {
+    display: none;
+}
+.fn-gray {
+    color: #999;
+}
+
+.ui-wrap {
+    width: 1000px;
+    margin: 0 auto;
+    @extend %clearfix;
+    background: #fff url(../images/sub-nav-line.png) repeat-y 199px 0;
+}
+.ui-content {
+    float: right;
+    width: 800px;
+}
+
+/* button */
+.fn-button-1 {
+    display: inline-block;
+    height: 46px;
+    padding: 0 20px;
+    line-height: 46px;
+    font-size: 14px;
+    text-align: center;
+    background: #ff4c05;
+    border: none;
+    color: #fff;
+    &:hover {
+        color: #fff;
+    }
+}
+.fn-button-2 {
+    display: inline-block;
+    height: 46px;
+    padding: 0 20px;
+    line-height: 46px;
+    font-size: 14px;
+    text-align: center;
+    background: #f6f6f6;
+    border: none;
+    color: #444;
+}
+
+.fn-input-1 {
+    height: 46px;
+    line-height: 26px;
+    font-size: 14px;
+    padding: 10px;
+    border: 1px solid #e7e7e7;
+}
