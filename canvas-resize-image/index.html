@@ -6,26 +6,30 @@
 <meta id="viewport" name="viewport" content="initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no">
 </head>
 <body>
-<input type="file" id="photo" accept="image/*">
-11
+<input type="file" id="photo" accept="image/*" capture="camera">
 </body>
 </html>
 <script src="js/zepto.min.js"></script>
 <script src="js/exif.min.js"></script>
 <script src="js/jpeg_encoder_basic.js"></script>
 <script src="js/megapix-image.js"></script>
-<script src="js/resize-image.js?v5"></script>
+<script src="js/resize-image.js"></script>
+
 <script>
 $('#photo').resizeIMG({
-    width: 100,
+    width: 200,
     quality: 0.8,
     successCallback: function(result){
-        console.log(result);
+        if(result.status === 200) {
+            var img = new Image();
+            
+            img.src = result.data.base64;
 
-        var img = new Image();
-         img.src = result.base64;
-
-        $('body').append(img);
+            $('body').append(img);
+        } else {
+            alert(result.message);
+        }
+        
     }
 });
 </script>

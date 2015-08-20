@@ -1,7 +1,7 @@
 /**
  * @Description: 压缩图片质量获得base64
  * @Author: wangjun
- * @Update: 2015-05-18 19:00
+ * @Update: 2015-05-19 19:00
  * @version: 1.0
  * @Github URL: https://github.com/nevergiveup-j/canvas-resize-image
  */
@@ -9,20 +9,25 @@
 ;(function (factory) {
     if (typeof define === "function" && define.amd) {
         // AMD模式
-        define([ "Zepto" ], factory);
+        define([ "Zepto"], factory);
     } else {
         // 全局模式
         factory(Zepto);
     }
+
 }(function ($) {
     "use strict";
 
     // 默认配置
     var defaults = {
         // 图片需要压缩的宽度，高度会跟随调整
-        width: 100,
+        width: 200,
         // 压缩质量，不压缩为1
-        quality : 0.8,
+        quality: 0.8,
+        // 图片大小 MB
+        fileSize: 3,
+        // 图片大小提示文字
+        fileMessage: '图片不大于3MB',
         // 处理前函数 
         beforeCallback: function() {
 
@@ -62,11 +67,25 @@
             URL = window.URL || window.webkitURL;
             blob = URL.createObjectURL(file);
 
+            // 上传前
+            that.opts.beforeCallback && that.opts.beforeCallback(this, blob, file);
+
+            // 图片大小MB
+            if((file.size/1024/1024).toFixed(2) > that.opts.fileSize){
+                // 生成结果
+                var result = {
+                    status: 401,
+                    message: that.opts.fileMessage
+                };
+
+                that.opts.successCallback && that.opts.successCallback(result);
+                return;
+            }
+
+            // 图片方向
             EXIF.getData(file, function(){
                 that.orientation = EXIF.getTag(file, 'Orientation');
             });
-
-            that.opts.beforeCallback && that.opts.beforeCallback(this, blob, file);
 
             that.base64IMG(blob);
 
@@ -91,7 +110,6 @@
             .attr('src', blob);        
 
         function canvasURL(self, blob) {
-
             // 生成比例
             var w = self.width,
                 h = self.height,
@@ -117,7 +135,7 @@
 
             // 修正图片方向
             if(that.orientation){
-                // that.transformCoordinate(canvas, w, h, that.orientation);
+                that.transformCoordinate(canvas, w, h, that.orientation);
             }
 
             ctx.drawImage(self, 0, 0, w, h);
@@ -129,7 +147,8 @@
 
             // 修复IOS
             if (navigator.userAgent.match(/iphone/i)) {
-                var mpImg = new MegaPixImage(img);
+                var mpImg = new MegaPixImage(blob);
+
                 mpImg.render(canvas, {
                     maxWidth: w,
                     maxHeight: h,
@@ -146,9 +165,13 @@
 
             // 生成结果
             var result = {
-                base64: base64,
-                clearBase64: base64.substr(base64.indexOf(',') + 1)
-            };
+                status: 200,
+                data: {
+                    base64: base64,
+                    clearBase64: base64.substr(base64.indexOf(',') + 1)
+                },
+                message: '图片上传成功'
+            }
 
             that.orientation = null;
 
