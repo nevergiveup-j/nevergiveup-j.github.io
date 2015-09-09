@@ -21,7 +21,7 @@
     // 默认配置
     var defaults = {
         // 图片需要压缩的宽度，高度会跟随调整
-        width: 200,
+        width: 640,
         // 压缩质量，不压缩为1
         quality: 0.8,
         // 图片大小 MB
@@ -115,8 +115,11 @@
                 h = self.height,
                 scale = w / h;
 
-            w = that.opts.width || w;
-            h = w / scale;
+            // 上传图片宽度大于需要宽度
+            if(w > that.opts.width){
+                w = that.opts.width || w;
+                h = w / scale;
+            }
 
             //生成canvas
             var canvas = document.createElement('canvas');
