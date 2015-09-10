@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Examples</title>
+<link rel="stylesheet" href="jquery.share.css">
+<style>
+body, a {
+	margin:0;
+	padding:0;
+}
+.share-list {
+	margin:100px auto;
+	text-align:center;
+}
+
+</style>
+</head>
+<body>
+<div class="share-list hp-shareTo-inner J_share_list">
+	<a href="javascript:" data-type="weibo" class="btn-share-weibo" title="新浪微博">新浪微博</a>
+	<a href="javascript:" data-type="tqq" class="btn-share-tqq" title="腾讯微博">腾讯微博</a>
+	<a href="javascript:" data-type="qzone" class="btn-share-qzone" title="QQ空间">QQ空间</a>
+	<a href="javascript:" data-type="renren" class="btn-share-renren" title="人人网">人人网</a>
+</div>
+
+<div id="shrae-newList" style="margin:0 auto;text-align:center;"></div>
+</body>
+</html>
+<script src="http://code.jquery.com/jquery-1.8.3.min.js"></script>
+<script src="qrcode/qrcode.min.js"></script>
+<script src="jquery.share.js"></script>
+<script>
+var url = window.location;
+</script>
+<script>
+
+$('.J_share_list a').bind('click', function() {
+	var type = $(this).data('type');
+	$.shareAPI(type, {
+		shareConfig: {
+			url: url,
+			title: '1212',
+			pic: 'http://www.hupu.com/uploads/hupu/focus/large-20140723093316.jpg||http://www.hupu.com/uploads/hupu/gallery/20140715143250-1.jpg',
+			source: {
+
+			}
+		},
+		buttons: {
+			'weibo': {
+				url: 'http://service.weibo.com/share/share.php?url={url}&title={title}&pic={pic}'
+			},
+			'twitter': {
+				text: 'twitter',
+				className: 'twitter',
+				url: 'https://twitter.com/share?url={url}&text={title}'
+			}
+		}
+	}); 
+});
+
+$('#shrae-newList').share({
+	theme: 'text',
+	shareConfig: {
+		url: 'http://www.hupu.com',
+		title: '1212',
+		searchPic: false
+	},
+	buttons: {
+		'weibo': {
+			url: 'http://service.weibo.com/share/share.php?url={url}&title={title}&pic={pic}'
+		},
+		'twitter': {
+			text: 'twitter',
+			className: 'twitter',
+			url: 'https://twitter.com/share?url={url}&text={title}'
+		}
+	},
+	social: ['weibo', 'tqq', 'qzone', 'renren', 'weixin', 'qq']
+});
+</script>

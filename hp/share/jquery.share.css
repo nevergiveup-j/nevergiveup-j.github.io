@@ -1,0 +1,174 @@
+@charset "UTF-8";
+
+.hp-shareTo-inner a {
+	display:inline-block;
+	*display:inline;
+	*zoom:1;
+	width:16px;
+	height:16px;
+	margin:0 2px;
+	text-indent:-99em;
+	overflow:hidden;
+	background:url(images/ico_share.png) no-repeat 0 -59px;
+}
+
+.hp-shareTo-inner .btn-share-weibo {
+	background-position:0 -59px;
+}
+.hp-shareTo-inner .btn-share-weibo:hover {
+	background-position:0 -75px;
+}
+.hp-shareTo-inner .btn-share-tqq {
+	background-position:-16px -59px;
+}
+.hp-shareTo-inner .btn-share-tqq:hover {
+	background-position:-16px -75px;
+}
+.hp-shareTo-inner .btn-share-qzone {
+	background-position:-32px -59px;
+}
+.hp-shareTo-inner .btn-share-qzone:hover {
+	background-position:-32px -75px;
+}
+.hp-shareTo-inner .btn-share-renren {
+	background-position:-48px -59px;
+}
+.hp-shareTo-inner .btn-share-renren:hover {
+	background-position:-48px -75px;
+}
+.hp-shareTo-inner .btn-share-weixin {
+	background-position:-64px -59px;
+}
+.hp-shareTo-inner .btn-share-weixin:hover {
+	background-position:-64px -75px;
+}
+.hp-shareTo-inner .btn-share-qq {
+	background-position:-80px -59px;
+}
+.hp-shareTo-inner .btn-share-qq:hover {
+	background-position:-80px -75px;
+}
+
+/* weixin */
+.hp-share-mask{
+	display:none;
+	position:absolute;
+	top:0;
+	left:0;
+	z-index:1000;
+	background:#000;
+	opacity:0.3;
+	filter:alpha(opacity=30);
+}
+.hp-pop-share{
+	position:absolute;
+	top:0;
+	left:0;
+	z-index:1001;
+	width:450px;
+	padding:15px 20px;
+	background:#fff;
+	-webkit-border-radius:5px;
+	-moz-border-radius:5px;
+	border-radius:5px;
+	-webkit-animation:showPanel 0.5s ease;
+	-moz-animation:showPanel 0.5s ease;
+	animation:showPanel 0.5s ease-in;
+}
+.hp-pop-share .hd{
+	padding-bottom:15px;
+}
+.hp-pop-share h3{
+	font:18px/30px "Microsoft Yahei";
+	text-align:center;
+}
+.hp-pop-share .btn-close{
+	position:absolute;
+	top:6px;
+	right:10px;
+	font-size:16px;
+	color:#444;
+	font-family:tahoma,arial;
+	text-decoration:none;
+}
+.hp-pop-share .btn-close:hover{
+	text-decoration:none;
+	color:#ca0002;
+}
+.voice-pop-in-share{
+	-webkit-animation:hidePanel 0.5s ease;
+	-moz-animation:hidePanel 0.5s ease;
+	animation:hidePanel 0.5s ease;
+}
+@-webkit-keyframes showPanel {
+	0% {
+		-webkit-transform:scale(0.75);
+		opacity:0.0;
+	}
+	50% {
+		-webkit-transform:scale(1.05);
+		opacity:1.0;
+	}
+	100% {
+		-webkit-transform:scale(1);
+		opacity:1.0;
+	}
+}
+@-moz-keyframes showPanel {
+	0% {
+		-moz-transform:scale(0.75);
+		opacity:0.0;
+	}
+	50% {
+		-moz-transform:scale(1.05);
+		opacity:1.0;
+	}
+	100% {
+		-moz-transform:scale(1);
+		opacity:1.0;
+	}
+}
+@keyframes showPanel {
+	0% {
+		transform:scale(0.75);
+		opacity:0.0;
+	}
+	50% {
+		transform:scale(1.05);
+		opacity:1.0;
+	}
+	100% {
+		transform:scale(1);
+		opacity:1.0;
+	}
+}
+@-webkit-keyframes hidePanel {
+	0% {
+		-webkit-transform:scale(1);
+		opacity:1.0;
+	}
+	100% {
+		-webkit-transform:scale(0.98);
+		opacity:0.0;
+	}
+}
+@-moz-keyframes hidePanel {
+	0% {
+		-moz-transform:scale(1);
+		opacity:1.0;
+	}
+	100% {
+		-moz-transform:scale(0.98);
+		opacity:0.0;
+	}
+}
+@keyframes hidePanel {
+	0% {
+		transform:scale(1);
+		opacity:1.0;
+	}
+	100% {
+		transform:scale(0.98);
+		opacity:0.0;
+	}
+}
