@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>弹出层</title>
+<style>
+body {
+	background:#eee;
+}
+body, a {
+	margin:0;
+	padding:0;
+}
+a {
+	color:#444;
+	text-decoration:none;
+	font-size:14px;
+}
+a:hover {
+	color:#000;
+}
+.popup-wrap {
+	width:300px;
+	margin:200px auto;
+}
+.hp-popup {
+	display:none;
+	width:450px;
+	min-height:250px;
+	padding:25px;
+	background:#fff;
+	border-radius:10px;
+}
+</style>
+</head>
+<body>
+<div class="popup-wrap">
+	<a href="javascript:" class="btn-popup">按扭</a>
+</div>
+
+<div class="hp-popup">
+	1212<br /><br /><br /><br />
+	<div style="text-align:center;">
+		<input type="button" value="关闭" class="btn-popup-close" />
+	</div>
+</div>
+
+<br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br />
+</body>
+</html>
+<script src="http://code.jquery.com/jquery-1.8.3.min.js"></script>
+<script src="jquery.popup.js"></script>
+<script>
+$('.btn-popup').bind('click', function() {
+
+	$('.hp-popup').popup({
+		// position: [0, 0],
+		// mask: false,
+		// zIndex : '12',
+		onOpenCallback: function() {
+			console.log('open');
+		},
+		onCloseCallback: function() {
+			console.log('close');
+		}
+	}, function() {
+		console.log('callback');
+	});
+});
+
+// 自定义关闭弹出层
+$('.btn-popup-close').bind('click', function() {
+	$('.hp-popup').trigger('close');
+});
+
+</script>
