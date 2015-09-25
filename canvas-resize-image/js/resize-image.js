@@ -188,7 +188,19 @@
      * 修正图片方向
      */
     ResizeIMG.prototype.transformCoordinate = function(canvas, width, height, orientation) {
-           
+        switch (orientation) {
+            case 5:
+            case 6:
+            case 7:
+            case 8:
+                canvas.width = height;
+                canvas.height = width;
+                break;
+            default:
+                canvas.width = width;
+                canvas.height = height;
+        }
+        
         var ctx = canvas.getContext('2d');
         switch (orientation) {
             case 1:
