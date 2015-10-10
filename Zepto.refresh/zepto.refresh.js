@@ -263,7 +263,7 @@
             return;
         }
 
-        this.$pullToRefresh.hide();
+        // this.$pullToRefresh.hide();
         this.isPullToRefresh = false;
         
     };
@@ -352,7 +352,7 @@
             that.wrapHeight = that.$content.height();
         }
 
-        if ( this.wrapHeight <= viewTop + 10  && this.oldScrollTop < scrollTop && !this.isLoading ) {
+        if ( this.wrapHeight <= viewTop + 10  && this.oldScrollTop < scrollTop && !this.isLoading && this.opts.isLoadingMore ) {
             // 如果存在最大时间限制, 切刷新时间未超出该时间，则不刷新
             var now = new Date().getTime();
             if(this.opts.interval && now - this.loadingFinishTime < this.opts.interval){
