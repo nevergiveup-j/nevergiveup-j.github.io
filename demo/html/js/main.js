@@ -23,7 +23,9 @@
 				that.toggle();
 			});
 
-			$('body').on('click', function(event) {
+			var hasTouch = 'ontouchend' in window;
+
+			$('body').on(hasTouch ? 'touchstart' : 'click', function(event) {
 				that.listenElement(event);
 			});
 		},
