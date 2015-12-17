@@ -754,6 +754,16 @@ a:hover {
     font-size: 16px;
     border: 2px solid #fff;
     color: #fff; }
+  .ui-footer .footer-feed .feed-bd {
+    position: relative; }
+  .ui-footer .footer-feed .button-feed {
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 42px;
+    height: 42px;
+    overflow: hidden;
+    background: url(../images/feed_button.png) no-repeat center; }
   .ui-footer .ui-copyright {
     padding: 20px 0;
     color: #fff; }
@@ -882,11 +892,10 @@ a:hover {
       .investor-wrap .annual-report .report-focus .button-prev,
       .investor-wrap .annual-report .report-focus .button-next {
         position: absolute;
-        top: 50%;
+        top: 80px;
         display: inline-block;
         width: 20px;
         height: 28px;
-        margin-top: -14px;
         overflow: hidden;
         background: url(../images/arrow.png) no-repeat 0 2px; }
       .investor-wrap .annual-report .report-focus .button-prev {
@@ -966,10 +975,14 @@ a:hover {
     .investor-wrap .new-news .table .sp-1 {
       border-left: none; }
     .investor-wrap .new-news .table .sp-2 {
-      text-align: center; }
+      text-align: center;
+      width: 100px; }
     .investor-wrap .new-news .table th.sp-1 {
       text-align: left;
       padding-left: 30px; }
+    .investor-wrap .new-news .table .text {
+      height: 37px;
+      overflow: hidden; }
   .investor-wrap .new-news .button-inner {
     padding-top: 20px;
     text-align: right;
@@ -982,5 +995,22 @@ a:hover {
   .investor-wrap .other-fn {
     padding-top: 10px;
     text-align: right; }
+
+@media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (-webkit-device-pixel-ratio: 2) and (orientation: portrait) {
+  .ui-header {
+    padding-left: 15px;
+    padding-right: 15px; }
+    .ui-header .ui-main-nav li {
+      padding: 0; }
+
+  .ui-footer .ui-w {
+    padding-left: 15px;
+    padding-right: 15px; }
+
+  .investor-wrap .annual-report .report-focus .reprot-focus-list {
+    width: 260px; }
+  .investor-wrap .ir-feed .in-br {
+    width: 170px;
+    margin-right: 10px; } }
 
 /*# sourceMappingURL=common.css.map */
