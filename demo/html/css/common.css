@@ -1,7 +1,7 @@
-.fn-clearfix:before, .ui-header .ui-top-bar:before, .ui-header .ui-main-nav:before, .ui-footer .ui-footer-main:before, .ui-footer .ui-link-address:before, .ui-wrap:before, .investor-wrap .annual-report .report-focus:before, .investor-wrap .annual-report .report-focus .reprot-focus-list ul:before, .fn-clearfix:after, .ui-header .ui-top-bar:after, .ui-header .ui-main-nav:after, .ui-footer .ui-footer-main:after, .ui-footer .ui-link-address:after, .ui-wrap:after, .investor-wrap .annual-report .report-focus:after, .investor-wrap .annual-report .report-focus .reprot-focus-list ul:after {
+.fn-clearfix:before, .ui-header .ui-top-bar:before, .ui-header .ui-main-nav:before, .ui-footer .ui-footer-main:before, .ui-footer .ui-link-address:before, .ui-wrap:before, .investor-wrap .annual-report .report-focus:before, .investor-wrap .annual-report .report-focus .reprot-focus-list ul:before, .investor-wrap .ir-feed .bd:before, .fn-clearfix:after, .ui-header .ui-top-bar:after, .ui-header .ui-main-nav:after, .ui-footer .ui-footer-main:after, .ui-footer .ui-link-address:after, .ui-wrap:after, .investor-wrap .annual-report .report-focus:after, .investor-wrap .annual-report .report-focus .reprot-focus-list ul:after, .investor-wrap .ir-feed .bd:after {
   content: "";
   display: table; }
-.fn-clearfix:after, .ui-header .ui-top-bar:after, .ui-header .ui-main-nav:after, .ui-footer .ui-footer-main:after, .ui-footer .ui-link-address:after, .ui-wrap:after, .investor-wrap .annual-report .report-focus:after, .investor-wrap .annual-report .report-focus .reprot-focus-list ul:after {
+.fn-clearfix:after, .ui-header .ui-top-bar:after, .ui-header .ui-main-nav:after, .ui-footer .ui-footer-main:after, .ui-footer .ui-link-address:after, .ui-wrap:after, .investor-wrap .annual-report .report-focus:after, .investor-wrap .annual-report .report-focus .reprot-focus-list ul:after, .investor-wrap .ir-feed .bd:after {
   clear: both; }
 
 .col-lg-1, .col-lg-2, .col-lg-3, .col-lg-4, .col-lg-5, .col-lg-6, .col-lg-7, .col-lg-8, .col-lg-9, .col-lg-10, .col-lg-11, .col-lg-12 {
@@ -841,6 +841,7 @@ a:hover {
       position: relative;
       padding: 5px 0; }
     .ui-sub-nav .ui-sub-nav-list a {
+      display: block;
       height: 28px;
       line-height: 28px; }
     .ui-sub-nav .ui-sub-nav-list .arrow-right {
@@ -863,6 +864,11 @@ a:hover {
 
 .ui-sub-nav-show .ui-sub-nav-list {
   display: block; }
+
+.ui-sub-nav-isshow .ui-sub-nav-list {
+  display: block;
+  position: inherit;
+  top: 0; }
 
 /* investor */
 .investor-wrap {
@@ -919,56 +925,54 @@ a:hover {
         background: url(../images/arrow.png) no-repeat 0 2px; }
       .investor-wrap .annual-report .report-focus .button-prev {
         left: 0; }
-      .investor-wrap .annual-report .report-focus .reprot-focus-list {
-        width: 398px;
+      .investor-wrap .annual-report .report-focus .reprot-focus-list ul {
+        width: 200%; }
+      .investor-wrap .annual-report .report-focus .reprot-focus-list li {
+        float: left;
+        width: 135px; }
+      .investor-wrap .annual-report .report-focus .reprot-focus-list .pic {
+        width: 124px;
+        height: 174px;
+        padding: 2px;
+        margin-bottom: 8px;
         overflow: hidden;
-        margin: 0 auto; }
-        .investor-wrap .annual-report .report-focus .reprot-focus-list ul {
-          width: 200%; }
-        .investor-wrap .annual-report .report-focus .reprot-focus-list li {
-          float: left;
-          width: 135px; }
-        .investor-wrap .annual-report .report-focus .reprot-focus-list .pic {
-          width: 124px;
-          height: 174px;
-          padding: 2px;
-          margin-bottom: 8px;
-          overflow: hidden;
-          border: 1px solid #929292; }
-          .investor-wrap .annual-report .report-focus .reprot-focus-list .pic img {
-            width: 100%; }
-        .investor-wrap .annual-report .report-focus .reprot-focus-list .name {
-          text-align: center;
-          font-size: 14px;
-          font-weight: 400;
-          line-height: 1.2; }
+        border: 1px solid #929292; }
+        .investor-wrap .annual-report .report-focus .reprot-focus-list .pic img {
+          width: 100%; }
+      .investor-wrap .annual-report .report-focus .reprot-focus-list .name {
+        text-align: center;
+        font-size: 14px;
+        font-weight: 400;
+        line-height: 1.2; }
       .investor-wrap .annual-report .report-focus .button-next {
         right: 0;
         background-position: 0 -74px; }
-  .investor-wrap .ir-feed .in-br {
-    float: left;
-    width: 240px;
-    height: 40px;
-    padding: 0 10px;
-    margin-right: 15px;
-    background: #f5f5f5;
-    border: none;
-    border-top: 1px solid #d2d2d2;
-    border-left: 1px solid #d2d2d2;
-    border-radius: 2px; }
-  .investor-wrap .ir-feed .bd a {
-    float: left;
-    display: inline-block;
-    height: 40px;
-    line-height: 40px;
-    padding: 0 20px;
-    margin-right: 4px;
-    font-size: 16px;
-    color: #fff;
-    background: #a8a8a8;
-    border-radius: 2px; }
-  .investor-wrap .ir-feed .bd .button-feed {
-    background: #003586; }
+  .investor-wrap .ir-feed {
+    margin-bottom: 20px; }
+    .investor-wrap .ir-feed .in-br {
+      float: left;
+      width: 240px;
+      height: 40px;
+      padding: 0 10px;
+      margin-right: 15px;
+      background: #f5f5f5;
+      border: none;
+      border-top: 1px solid #d2d2d2;
+      border-left: 1px solid #d2d2d2;
+      border-radius: 2px; }
+    .investor-wrap .ir-feed .bd a {
+      float: left;
+      display: inline-block;
+      height: 40px;
+      line-height: 40px;
+      padding: 0 20px;
+      margin-right: 4px;
+      font-size: 16px;
+      color: #fff;
+      background: #a8a8a8;
+      border-radius: 2px; }
+    .investor-wrap .ir-feed .bd .button-feed {
+      background: #003586; }
   .investor-wrap .new-news .table {
     width: 100%;
     font-size: 14px; }
@@ -1023,7 +1027,7 @@ a:hover {
     float: left; }
   .about-wrap .main-content {
     float: right;
-    width: 750px;
+    width: 740px;
     margin-top: 45px; }
   .about-wrap .about-banner {
     margin-bottom: 20px; }
@@ -1047,8 +1051,6 @@ a:hover {
     padding-left: 15px;
     padding-right: 15px; }
 
-  .investor-wrap .annual-report .report-focus .reprot-focus-list {
-    width: 260px; }
   .investor-wrap .ir-feed .in-br {
     width: 170px;
     margin-right: 10px; }

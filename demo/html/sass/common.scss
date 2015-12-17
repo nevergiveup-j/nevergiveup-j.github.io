@@ -286,6 +286,7 @@ a:hover {
             padding: 5px 0;
         }
         a {
+            display: block;
             height: 28px;
             line-height: 28px;
         }
@@ -310,10 +311,14 @@ a:hover {
         }
     }
 }
-.ui-sub-nav-show {
-    .ui-sub-nav-list {
-        display: block;
-    }
+.ui-sub-nav-show .ui-sub-nav-list {
+    display: block;
+}
+
+.ui-sub-nav-isshow .ui-sub-nav-list {
+    display: block;
+    position: inherit;
+    top: 0;
 }
 
 /* investor */
@@ -387,9 +392,9 @@ a:hover {
                 left: 0;
             }
             .reprot-focus-list {
-                width: 398px;
-                overflow: hidden;
-                margin: 0 auto;
+                //width: 398px;
+                //overflow: hidden;
+                //margin: 0 auto;
                 ul {
                     @extend %clearfix;
                     width: 200%;
@@ -423,6 +428,7 @@ a:hover {
         }
     }
     .ir-feed {
+        margin-bottom: 20px;
         .in-br {
             @include float();
             width: 240px;
@@ -436,6 +442,7 @@ a:hover {
             @include border-radius(2px);
         }
         .bd {
+            @extend %clearfix;
             a {
                 @include float();
                 display: inline-block;
@@ -523,7 +530,7 @@ a:hover {
     }
     .main-content {
         @include float(right);
-        width: 750px;
+        width: 740px;
         margin-top: 45px;
     }
     .about-banner {
@@ -563,7 +570,7 @@ a:hover {
         .annual-report {
             .report-focus {
                 .reprot-focus-list {
-                    width: 260px;
+                    //width: 260px;
                 }
             }
         }

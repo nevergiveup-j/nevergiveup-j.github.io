@@ -8,7 +8,7 @@
     <meta name="format-detection" content="telephone=no">
     <meta name="apple-mobile-web-app-capable" content="yes" />
     <meta name="apple-mobile-web-app-status-bar-style" content="black" />
-    <link rel="stylesheet" href="css/common.css?t=2015121602"/>
+    <link rel="stylesheet" href="css/common.css?t=2015121603"/>
 </head>
 <body>
 <div class="ui-header">
@@ -164,9 +164,29 @@
                             </div>
                             <div class="bd">
                                 <div class="report-focus">
-                                    <a href="javascript:" class="button-prev"></a>
                                     <div class="reprot-focus-list">
-                                        <ul>
+                                        <ul class="bxslider">
+                                            <li>
+                                                <div class="pic">
+                                                    <img src="images/report_pic_1.jpg" alt=""/>
+                                                </div>
+                                                <h4 class="name">宝钢股份<br />
+                                                    2014年度报告</h4>
+                                            </li>
+                                            <li>
+                                                <div class="pic">
+                                                    <img src="images/report_pic_1.jpg" alt=""/>
+                                                </div>
+                                                <h4 class="name">宝钢股份<br />
+                                                    2014年度报告</h4>
+                                            </li>
+                                            <li>
+                                                <div class="pic">
+                                                    <img src="images/report_pic_1.jpg" alt=""/>
+                                                </div>
+                                                <h4 class="name">宝钢股份<br />
+                                                    2014年度报告</h4>
+                                            </li>
                                             <li>
                                                 <div class="pic">
                                                     <img src="images/report_pic_1.jpg" alt=""/>
@@ -190,7 +210,6 @@
                                             </li>
                                         </ul>
                                     </div>
-                                    <a href="javascript:" class="button-next"></a>
                                 </div>
                             </div>
                         </div>
@@ -631,6 +650,40 @@
 
 
 <script src="js/jquery.min.js"></script>
+<link rel="stylesheet" href="js/jquery.bxslider/jquery.bxslider.css"/>
+<script src="js/jquery.bxslider/jquery.bxslider.min.js"></script>
 <script src="js/main.js"></script>
+<script>
+    $(function(){
+        var slider = null;
+        function getResize(){
+            var viewWidth = $(window).width(),
+                    slideCount = 3;
+
+            if(viewWidth <= 768 ){
+                slideCount = 2;
+            }
+
+            slider && slider.destroySlider();
+
+            slider = $('.bxslider').bxSlider({
+                minSlides: slideCount,
+                maxSlides: slideCount,
+                moveSlides: 1,
+                slideWidth: 360,
+                slideMargin: 10,
+                pager: false
+            });
+        }
+
+        $(window).on('resize', function() {
+            setTimeout(function() {
+                getResize();
+            }, 300)
+        });
+
+        getResize();
+    })
+</script>
 </body>
 </html>
