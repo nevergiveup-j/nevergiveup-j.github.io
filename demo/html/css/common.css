@@ -707,7 +707,7 @@ a:hover {
     .ui-header .ui-main-nav .first-node {
       padding-left: 0; }
     .ui-header .ui-main-nav a {
-      display: inline-block;
+      display: block;
       height: 50px;
       padding: 0 5px;
       color: #003586; }
