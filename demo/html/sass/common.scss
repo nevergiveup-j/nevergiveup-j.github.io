@@ -114,13 +114,13 @@ a:hover {
             padding-left: 0;
         }
         a {
-            display: inline-block;
+            display: block;
             height: 50px;
             padding: 0 5px;
             color: #003586;
         }
         .active a {
-            padding-bottom: 45px;
+            height: 45px;
             border-bottom: 5px solid #244386;
         }
     }
@@ -392,6 +392,7 @@ a:hover {
                 left: 0;
             }
             .reprot-focus-list {
+                overflow: hidden;
                 //width: 398px;
                 //overflow: hidden;
                 //margin: 0 auto;
@@ -515,6 +516,7 @@ a:hover {
 }
 
 .share-fn {
+    @extend %clearfix;
     padding: 50px 0 20px 0;
     border-bottom: 1px solid #5a5a5a;
 }
