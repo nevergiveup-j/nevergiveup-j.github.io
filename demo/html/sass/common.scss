@@ -241,6 +241,7 @@ a:hover {
 }
 
 .ui-wrap {
+    @extend %clearfix;
     padding-top: 130px;
     .main-content {
         padding: 15px;
@@ -275,15 +276,37 @@ a:hover {
         left: 0;
         width: 240px;
         min-height: 300px;
-        padding: 20px 0;
+        padding: 15px 20px;
         font-size: 16px;
         background: #fff;
         border: 1px solid #f1f1f1;
         border-top: none;
+        li {
+            position: relative;
+            padding: 5px 0;
+        }
         a {
-            height: 38px;
-            line-height: 38px;
-            padding-left: 20px;
+            height: 28px;
+            line-height: 28px;
+        }
+        .arrow-right {
+            position: absolute;
+            top: 50%;
+            right: 0;
+            width: 5px;
+            height: 5px;
+            margin-top: -3px;
+            overflow: hidden;
+            border-right: 1px solid #244386;
+            border-bottom: 1px solid #244386;
+            @include rotate(315deg);
+            visibility: hidden;
+        }
+        .active {
+            border-bottom: 1px solid #244386;
+            .arrow-right {
+                visibility: visible;
+            }
         }
     }
 }
@@ -482,13 +505,40 @@ a:hover {
             }
         }
     }
-    .share-fn {
-        padding: 50px 0 20px 0;
-        border-bottom: 1px solid #5a5a5a;
+}
+
+.share-fn {
+    padding: 50px 0 20px 0;
+    border-bottom: 1px solid #5a5a5a;
+}
+.other-fn {
+    padding-top: 10px;
+    text-align: right;
+}
+
+.about-wrap {
+    background: url(../images/banner_bg_2.jpg) no-repeat top center;
+    .ui-sub-nav {
+        @include float();
     }
-    .other-fn {
-        padding-top: 10px;
-        text-align: right;
+    .main-content {
+        @include float(right);
+        width: 750px;
+        margin-top: 45px;
+    }
+    .about-banner {
+        margin-bottom: 20px;
+        img {
+            width: 100%;
+        }
+    }
+    .about-content {
+        font-size: 14px;
+        text-align: justify;
+        .about-content-pic {
+            @include float(right);
+            margin: 0 0 20px 20px;
+        }
     }
 }
 
@@ -508,6 +558,7 @@ a:hover {
             padding-right: 15px;
         }
     }
+
     .investor-wrap {
         .annual-report {
             .report-focus {
@@ -519,6 +570,12 @@ a:hover {
         .ir-feed .in-br {
             width: 170px;
             margin-right: 10px;
+        }
+    }
+
+    .about-wrap {
+        .main-content {
+            width: 510px;
         }
     }
 }

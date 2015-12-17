@@ -1,7 +1,7 @@
-.fn-clearfix:before, .ui-header .ui-top-bar:before, .ui-header .ui-main-nav:before, .ui-footer .ui-footer-main:before, .ui-footer .ui-link-address:before, .investor-wrap .annual-report .report-focus:before, .investor-wrap .annual-report .report-focus .reprot-focus-list ul:before, .fn-clearfix:after, .ui-header .ui-top-bar:after, .ui-header .ui-main-nav:after, .ui-footer .ui-footer-main:after, .ui-footer .ui-link-address:after, .investor-wrap .annual-report .report-focus:after, .investor-wrap .annual-report .report-focus .reprot-focus-list ul:after {
+.fn-clearfix:before, .ui-header .ui-top-bar:before, .ui-header .ui-main-nav:before, .ui-footer .ui-footer-main:before, .ui-footer .ui-link-address:before, .ui-wrap:before, .investor-wrap .annual-report .report-focus:before, .investor-wrap .annual-report .report-focus .reprot-focus-list ul:before, .fn-clearfix:after, .ui-header .ui-top-bar:after, .ui-header .ui-main-nav:after, .ui-footer .ui-footer-main:after, .ui-footer .ui-link-address:after, .ui-wrap:after, .investor-wrap .annual-report .report-focus:after, .investor-wrap .annual-report .report-focus .reprot-focus-list ul:after {
   content: "";
   display: table; }
-.fn-clearfix:after, .ui-header .ui-top-bar:after, .ui-header .ui-main-nav:after, .ui-footer .ui-footer-main:after, .ui-footer .ui-link-address:after, .investor-wrap .annual-report .report-focus:after, .investor-wrap .annual-report .report-focus .reprot-focus-list ul:after {
+.fn-clearfix:after, .ui-header .ui-top-bar:after, .ui-header .ui-main-nav:after, .ui-footer .ui-footer-main:after, .ui-footer .ui-link-address:after, .ui-wrap:after, .investor-wrap .annual-report .report-focus:after, .investor-wrap .annual-report .report-focus .reprot-focus-list ul:after {
   clear: both; }
 
 .col-lg-1, .col-lg-2, .col-lg-3, .col-lg-4, .col-lg-5, .col-lg-6, .col-lg-7, .col-lg-8, .col-lg-9, .col-lg-10, .col-lg-11, .col-lg-12 {
@@ -832,15 +832,34 @@ a:hover {
     left: 0;
     width: 240px;
     min-height: 300px;
-    padding: 20px 0;
+    padding: 15px 20px;
     font-size: 16px;
     background: #fff;
     border: 1px solid #f1f1f1;
     border-top: none; }
+    .ui-sub-nav .ui-sub-nav-list li {
+      position: relative;
+      padding: 5px 0; }
     .ui-sub-nav .ui-sub-nav-list a {
-      height: 38px;
-      line-height: 38px;
-      padding-left: 20px; }
+      height: 28px;
+      line-height: 28px; }
+    .ui-sub-nav .ui-sub-nav-list .arrow-right {
+      position: absolute;
+      top: 50%;
+      right: 0;
+      width: 5px;
+      height: 5px;
+      margin-top: -3px;
+      overflow: hidden;
+      border-right: 1px solid #244386;
+      border-bottom: 1px solid #244386;
+      -webkit-transform: rotate(315deg);
+      transform: rotate(315deg);
+      visibility: hidden; }
+    .ui-sub-nav .ui-sub-nav-list .active {
+      border-bottom: 1px solid #244386; }
+      .ui-sub-nav .ui-sub-nav-list .active .arrow-right {
+        visibility: visible; }
 
 .ui-sub-nav-show .ui-sub-nav-list {
   display: block; }
@@ -989,12 +1008,33 @@ a:hover {
     font-size: 14px; }
     .investor-wrap .new-news .button-inner a {
       color: #003586; }
-  .investor-wrap .share-fn {
-    padding: 50px 0 20px 0;
-    border-bottom: 1px solid #5a5a5a; }
-  .investor-wrap .other-fn {
-    padding-top: 10px;
-    text-align: right; }
+
+.share-fn {
+  padding: 50px 0 20px 0;
+  border-bottom: 1px solid #5a5a5a; }
+
+.other-fn {
+  padding-top: 10px;
+  text-align: right; }
+
+.about-wrap {
+  background: url(../images/banner_bg_2.jpg) no-repeat top center; }
+  .about-wrap .ui-sub-nav {
+    float: left; }
+  .about-wrap .main-content {
+    float: right;
+    width: 750px;
+    margin-top: 45px; }
+  .about-wrap .about-banner {
+    margin-bottom: 20px; }
+    .about-wrap .about-banner img {
+      width: 100%; }
+  .about-wrap .about-content {
+    font-size: 14px;
+    text-align: justify; }
+    .about-wrap .about-content .about-content-pic {
+      float: right;
+      margin: 0 0 20px 20px; }
 
 @media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (-webkit-device-pixel-ratio: 2) and (orientation: portrait) {
   .ui-header {
@@ -1011,6 +1051,9 @@ a:hover {
     width: 260px; }
   .investor-wrap .ir-feed .in-br {
     width: 170px;
-    margin-right: 10px; } }
+    margin-right: 10px; }
+
+  .about-wrap .main-content {
+    width: 510px; } }
 
 /*# sourceMappingURL=common.css.map */
