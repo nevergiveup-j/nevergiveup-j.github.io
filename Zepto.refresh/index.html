@@ -99,28 +99,28 @@ a:hover {
 </body>
 </html>
 <script src="zepto.min.js"></script>
-<script src="zepto.refresh.js?t=2015101003"></script>
+<script src="zepto.refresh.min.js?t=2015122101"></script>
 <script>
 var totalNumber = 30;
 
 $(window).refresh({
 	contentEl: '#J_scrller',
+	// 头部的高度
+	distanceToRefresh: 40,
+	// 开启刷新
 	isRefresh: true,
+	// 开启加载更多
 	isLoadingMore: true,
-	// 向上
+	// 触发刷新回调
 	refreshCallback: function(complete) {
 		 setTimeout(function() {
-			 // window.location.reload();
-			 complete();
-			 console.log('reload');
+			 window.location.reload();
+			complete();
 		 }, 1000)
 	},
-	// 
+	// 加载更多回调
 	loadingMoreCallback: function(complete) {
 		var tpl = '';
-
-
-		console.log(1212);
 
 		for (var i = 0; i < 10; i++) {
 			totalNumber++;
