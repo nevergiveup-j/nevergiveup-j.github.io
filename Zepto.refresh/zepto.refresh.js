@@ -1,7 +1,7 @@
 /**
  * @Description: 下拉到底部和上拉到顶部再拉就出现刷新效果
  * @Author: wangjun
- * @Update: 2015-12-21 18:00
+ * @Update: 2015-12-30 12:00
  * @version: 1.2
  * @Github URL: https://github.com/nevergiveup-j/zepto-refresh
  */
@@ -153,7 +153,7 @@
 
         var moveTpl = [
             '<style>',
-            '.preloader-loading-more {display: none;padding: 15px 10px;text-align:center;}',
+            '.preloader-loading-more {display: block;padding: 15px 10px;text-align:center;}',
             '.preloader-loading-more:before,.preloader-loading-more:after {content:""}',
             '.preloader-loading-more .loading-bounce, .preloader-loading-more:before, .preloader-loading-more:after {width: 15px;height: 15px;background-color: #dd0202;-webkit-border-radius: 100%;border-radius: 100%;display: inline-block; -webkit-animation: bouncedelay 1.4s infinite ease-in-out;animation: bouncedelay 1.4s infinite ease-in-out; -webkit-animation-fill-mode: both;animation-fill-mode: both;}',
             '.preloader-loading-more:before {-webkit-animation-delay: -0.32s;animation-delay: -0.32s;}',
@@ -186,6 +186,10 @@
         if(this.opts.isLoadingMore) {
             this.$content.after( moveTpl );
             this.$loadingMore = $('.preloader-loading-more');
+
+            if(this.wrapHeight < viewHeight){
+                this.$loadingMore.hide();
+            }
         }
     };
 
@@ -264,7 +268,7 @@
             distance = Math.sin(distance/this.opts.maxDistanceToRefresh) * distance;
 
 
-        // 当前处于首屏，distanceToRefresh像素容差值 && 向下滑动刷新
+        // 当前处于首屏，设置distanceToRefresh坐标 && 向下滑动刷新
         if ( this.scrollTop <= this.opts.distanceToRefresh && this.opts.movePosition === 'down'  ) {
             
             if(currentY >= this.opts.minDistanceToRefresh){
@@ -378,11 +382,11 @@
         function complete(status) {
             if("finish" == status){
                 that.finished = true;
+                that.$loadingMore.hide();
                 that.$wrap.off("scroll.refresh");
             }
 
             that.isLoading = false;
-            that.$loadingMore.hide();
             that.wrapHeight = that.$content.height();
         }
 
