@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html style="font-size: 100px;">
+<head lang="en">
+<meta charset="UTF-8">
+<meta id="viewport" name="viewport" content="initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no">
+<meta name="format-detection" content="telephone=no">
+<meta name="apple-mobile-web-app-capable" content="yes" />
+<meta name="apple-mobile-web-app-status-bar-style" content="black" />
+<title>日产</title>
+<link rel="stylesheet" href="css/common.css">
+<script>
+(function(win, doc){
+    var docEl = doc.documentElement,
+        resizeEvt = 'orientationchange' in window ? 'orientationchange' : 'resize',
+        recalc = function () {
+            var clientWidth = docEl.clientWidth;
+            if (!clientWidth) return;
+
+            docEl.style.fontSize = 100 * (clientWidth / 320) + 'px';
+        };
+
+        // Abort if browser does not support addEventListener
+        if (!doc.addEventListener) return;
+        win.addEventListener(resizeEvt, recalc, false);
+        doc.addEventListener('DOMContentLoaded', recalc, false);
+})(window, document)
+</script>
+</head>
+<body>
+<div class="ui-page page-1">
+    <div class="banner">
+        <img src="images/page_bg_1.jpg" alt=""/>
+    </div>
+    <div class="title">
+        <h2>机票+门票生成器</h2>
+    </div>
+    <div class="name-inner">
+        <div class="name-inner-1">
+            <input type="text" placeholder="请输入您的姓名" maxlength="10" class="input-name"/>
+        </div>
+    </div>
+    <div class="content">
+        参与新生代TIIDA#直通里约#互动，<br />
+        成为易建联队友，获取飞往里约真正的机票+奥运门票<br />
+        参与链接：<a href="http://tiida.hupu.com/">http://tiida.hupu.com/</a>
+    </div>
+    <div class="button-inner">
+        <a href="javascript:" class="ui-button-1" id="J_buttonToImage">确认生成</a>
+    </div>
+</div>
+<div class="ui-page page-2">
+    <img src="" id="J_pagePhoto" alt=""/>
+    <div class="tips-save">
+        长按下方图片，点选保存图片
+    </div>
+    <div class="button-inner">
+        <a href="javascript:" class="ui-button-1">直通里约</a>
+    </div>
+</div>
+</body>
+</html>
+<script src="js/zepto.min.js"></script>
+<script src="js/quark.base-1.0.0.min.js"></script>
+<script src="js/megapix-image.js"></script>
+<script src="js/jpeg_encoder_basic.js"></script>
+<script src="js/index.js"></script>

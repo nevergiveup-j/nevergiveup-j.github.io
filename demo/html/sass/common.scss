@@ -1,0 +1,204 @@
+@charset "utf-8";
+
+@import "vendor/sassCore/base";
+@import "vendor/sassCore/core/reset";
+
+html,
+body {
+    height: 100%;
+    overflow: hidden;
+}
+
+html {
+    font-size: 100px;
+}
+
+// 灰色遮罩怎么去掉
+a, button, input, textarea{
+    -webkit-tap-highlight-color: rgba(0,0,0,0);
+}
+
+a:hover {
+    @include transition(all .15s ease-out);
+}
+
+*, *:before, *:after {
+    @include box-sizing(border-box);
+}
+
+@font-face {
+    font-family: 'aldoPC';
+    src:    url('../fonts/AldoPC.eot.eot?prcg7k');
+    src:    url('../fonts/AldoPC.eot?prcg7k#iefix') format('embedded-opentype'),
+        url('../fonts/AldoPC.ttf?prcg7k') format('truetype'),
+        url('../fonts/AldoPC.woff?prcg7k') format('woff'),
+        url('../fonts/AldoPC.svg?prcg7k#icomoon') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
+
+// 浮动及闭合浮动
+.fn-fl{
+    @include float;
+}
+.fn-fr{
+    @include float(right);
+}
+
+.fn-clear {
+    display:block;
+    float:none;
+    clear:both;
+    overflow:hidden;
+    width:auto;
+    height:0;
+    margin:0 auto;
+    padding:0;
+    font-size:0;
+    line-height:0;
+}
+.fn-clearfix {
+    @extend %clearfix;
+}
+
+.fn-hide {
+    display: none;
+}
+
+.ui-button-1 {
+    @include inline-block();
+    width: 1.6rem;
+    height: .46rem;
+    line-height: .46rem;
+    font-size: .16rem;
+    background: url(../images/button_bg.png) no-repeat top left;
+    background-size: contain;
+    color: #ffef00;
+}
+.ui-button-1:hover {
+    color: #ffef00;
+}
+
+/* page1 */
+.page-1 {
+    height: 100%;
+    .banner {
+        width: 100%;
+        margin-bottom: 0.1rem;
+        img {
+            width: 100%;
+        }
+    }
+    .title {
+        margin-bottom: 0.15rem;
+        text-align: center;
+        background: url(../images/title.png) no-repeat center center;
+        background-size: 157px 11px;
+        h2 {
+            font-size: 0.2rem;
+        }
+    }
+    .name-inner {
+        padding: 0 .4rem .2rem;
+        text-align: center;
+        .name-inner-1 {
+            position: relative;
+            &:before,
+            &:after {
+                content: "";
+                position: absolute;
+                top: 50%;
+                width: 10px;
+                height: 1px;
+                margin-top: -1px;
+                overflow: hidden;
+                background: $white;
+            }
+            &:before {
+                left: .1rem;
+            }
+            &:after {
+                right: .1rem;
+            }
+        }
+        .input-name {
+            width: 100%;
+            height: .4rem;
+            text-align: center;
+            background: $black;
+            border: 1px solid $white;
+            color: $white;
+            @include border-radius(.05rem);
+        }
+    }
+    .content {
+        padding-bottom: .3rem;
+        font-size: .12rem;
+        line-height: 1.8;
+        text-align: center;
+        color: #2fbb8e;
+        a {
+            color: #ffef00;
+        }
+    }
+    .button-inner {
+        text-align: center;
+    }
+}
+
+
+#canvas {
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    width: 100%;
+}
+
+.page-2 {
+    display: none;
+    height: 100%;
+
+    .page-bg {
+        position: absolute;
+        left: 0;
+        right: 0;
+        bottom: 0;
+
+        width: 100%;
+    }
+    .name {
+        position: absolute;
+        left: 6%;
+        bottom: 26%;
+        z-index: 5;
+        line-height: 1.2;
+        font-size: 0.12rem;
+        color: #444547;
+        @include transform(rotate(3deg) scale(.9));
+        .en {
+            font-family: "aldoPC";
+        }
+    }
+    .tips-save {
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        z-index: 5;
+        width: 100%;
+        padding: .05rem 0;
+        text-align: center;
+        background: rgba(15,57,43, .9);
+        color: #ffef00;
+    }
+    .button-inner {
+        position: absolute;
+        left: 0;
+        right: 0;
+        z-index: 5;
+        bottom: 5%;
+        width: 100%;
+        text-align: center;
+    }
+}
