@@ -105,17 +105,18 @@
 			});
 
 			var posX = self.width / 12;
-			var h = 0;
+			var h = self.imgHeight / 1.53,
+				enH = self.imgHeight / 1.47
 
 			if(self.height >= self.imgHeight){
-				h = self.height
+				h += (self.height - self.imgHeight);
+				enH += (self.height - self.imgHeight);
 			}else{
-				h = self.height - (self.imgHeight - self.height)
+				h -= (self.imgHeight - self.height);
+				enH -= (self.imgHeight - self.height);
 			}
 
-			console.log(" h===" + h);
-
-			text.y = h / 1.48;
+			text.y = h;
 			text.x = posX;
 
 			self.stage.addChild(text);
@@ -126,7 +127,7 @@
 				font: '400 12px aldoPC'
 			});
 
-			textEn.y = h / 1.42;
+			textEn.y = enH;
 			textEn.x = posX;
 
 			self.stage.addChild(textEn);
