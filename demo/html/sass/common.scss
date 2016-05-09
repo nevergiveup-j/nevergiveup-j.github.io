@@ -84,13 +84,14 @@ a:hover {
     height: 100%;
     .banner {
         width: 100%;
-        margin-bottom: 0.1rem;
+        // margin-bottom: 0.1rem;
         img {
             width: 100%;
         }
     }
     .title {
-        margin-bottom: 0.15rem;
+        margin-top: -0.1rem;
+        // margin-bottom: 0.15rem;
         text-align: center;
         background: url(../images/title.png) no-repeat center center;
         background-size: 157px 11px;
@@ -123,7 +124,8 @@ a:hover {
         }
         .input-name {
             width: 100%;
-            height: .4rem;
+            height: .38rem;
+            line-height: .38rem;
             text-align: center;
             background: $black;
             border: 1px solid $white;
@@ -132,7 +134,7 @@ a:hover {
         }
     }
     .content {
-        padding-bottom: .3rem;
+        padding-bottom: .2rem;
         font-size: .12rem;
         line-height: 1.8;
         text-align: center;

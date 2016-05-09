@@ -8,6 +8,8 @@
 			this.height = $(window).height();
 			this.bg = 'images/page_bg_2.jpg';
 			this.ratio = this.width / 640;
+			this.imgHeight = 0;
+
 			this.textArr = [
 				'宋仲基',
 				'SONG ZHONG JI'
@@ -56,7 +58,9 @@
 				// 增加背景
 				var bgImg = new Quark.Bitmap({image: img});
 
-				bgImg.y = self.height - (img.height * self.ratio);
+				self.imgHeight = img.height * self.ratio;
+
+				bgImg.y = self.height - self.imgHeight;
 
 				bgImg.scaleX = self.ratio;
 				bgImg.scaleY = self.ratio;
@@ -101,8 +105,17 @@
 			});
 
 			var posX = self.width / 12;
+			var h = 0;
 
-			text.y = self.height / 1.45;
+			if(self.height >= self.imgHeight){
+				h = self.height
+			}else{
+				h = self.height - (self.imgHeight - self.height)
+			}
+
+			console.log(" h===" + h);
+
+			text.y = h / 1.48;
 			text.x = posX;
 
 			self.stage.addChild(text);
@@ -113,7 +126,7 @@
 				font: '400 12px aldoPC'
 			});
 
-			textEn.y = self.height / 1.4;
+			textEn.y = h / 1.42;
 			textEn.x = posX;
 
 			self.stage.addChild(textEn);

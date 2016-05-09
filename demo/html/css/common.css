@@ -512,12 +512,11 @@ a:hover {
 .page-1 {
   height: 100%; }
   .page-1 .banner {
-    width: 100%;
-    margin-bottom: 0.1rem; }
+    width: 100%; }
     .page-1 .banner img {
       width: 100%; }
   .page-1 .title {
-    margin-bottom: 0.15rem;
+    margin-top: -0.1rem;
     text-align: center;
     background: url(../images/title.png) no-repeat center center;
     background-size: 157px 11px; }
@@ -543,14 +542,15 @@ a:hover {
         right: .1rem; }
     .page-1 .name-inner .input-name {
       width: 100%;
-      height: .4rem;
+      height: .38rem;
+      line-height: .38rem;
       text-align: center;
       background: #000;
       border: 1px solid #fff;
       color: #fff;
       border-radius: 0.05rem; }
   .page-1 .content {
-    padding-bottom: .3rem;
+    padding-bottom: .2rem;
     font-size: .12rem;
     line-height: 1.8;
     text-align: center;
