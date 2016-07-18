@@ -275,15 +275,15 @@
      */
     SlidePage.prototype.addEvent = function() {
         var that = this;
-        // $(window).on('touchstart mousedown', function(event) {
-        //     that.touchStart(event);
-        // });
-        // $(window).on('touchmove mousemove', function(event) {
-        //     that.touchMove(event);
-        // });
-        // $(window).on('touchend mouseup', function(event) {
-        //     that.touchEnd(event);
-        // });
+        $(window).on('touchstart mousedown', function(event) {
+            that.touchStart(event);
+        });
+        $(window).on('touchmove mousemove', function(event) {
+            that.touchMove(event);
+        });
+        $(window).on('touchend mouseup', function(event) {
+            that.touchEnd(event);
+        });
     };
 
     /**
@@ -328,7 +328,7 @@
         var pageY,
             opts = this.opts;
 
-        event.preventDefault();
+        // event.preventDefault();
 
         if(!this.isTouchStart) {
             return;
