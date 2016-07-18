@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html style="font-size: 100px;">
+<head lang="en">
+<meta charset="UTF-8">
+<meta id="viewport" name="viewport" content="initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no">
+<meta name="format-detection" content="telephone=no">
+<meta name="apple-mobile-web-app-capable" content="yes" />
+<meta name="apple-mobile-web-app-status-bar-style" content="black" />
+<title>曼城中国行</title>
+<link rel="stylesheet" href="css/common.css">
+<script>
+(function(win, doc){
+    var docEl = doc.documentElement,
+        resizeEvt = 'orientationchange' in window ? 'orientationchange' : 'resize',
+        recalc = function () {
+            var clientWidth = docEl.clientWidth;
+            if (!clientWidth) return;
+
+            docEl.style.fontSize = 100 * (clientWidth / 320) + 'px';
+        };
+
+        // Abort if browser does not support addEventListener
+        if (!doc.addEventListener) return;
+        win.addEventListener(resizeEvt, recalc, false);
+        doc.addEventListener('DOMContentLoaded', recalc, false);
+})(window, document)
+</script>
+</head>
+<body class="ui-bg-1">
+<div class="m-wrap activity-wrap">
+  <div class="ui-header">
+    <img src="images/page2/logo_1.png" class="logo" alt=""/>
+  </div>
+  <div class="ui-title-1">
+    <a href="index.html?page=2" class="button-return"></a>
+    <h2>球迷活动</h2>
+  </div>
+  <div class="active-con">
+    <div class="banner">
+      <div class="banner-pos">
+        <img src="images/activity/banner.jpg" alt="">
+      </div>
+    </div>
+    <div class="content-inner">
+      <div class="content-pos">
+        <div class="about">
+          7月24日（周日）10：00-19：30，曼城足球节活动将在北京世纪金源购物中心举行，这里聚集了众多在北京的曼城球迷。加入我们，你将可以：
+        </div>
+        <div class="active-list">
+          1 免费踢球并参与曼城教练的培训课程<br />
+          2 与我们的联赛杯奖杯合影<br />
+          3 赢得签名商品<br />
+          4 抢先目睹我们的客场队服<br />
+          5 与一线队球员亲密接触<br />
+          6 更多现场互动!
+        </div>
+        <div class="info">
+          输入手机号参与活动，<br />
+          你还有机会获得限量版的曼城中国行T恤！
+        </div>
+        <ul class="form-list" id="J_formList">
+          <li>
+            <label for="">参加人数：</label>
+            <div class="flex">
+              <select class="select">
+                <option value="0">*1-5人</option>
+                <option value="1">1</option>
+                <option value="1">2</option>
+                <option value="1">3</option>
+                <option value="1">4</option>
+              </select>
+            </div>  
+          </li>
+          <li>
+            <label for="">手机：</label>
+            <div class="flex">
+              <input type="text" value="" class="input-text" />
+            </div>
+          </li>
+        </ul>
+        <div class="button-inner">
+          <input type="button" value="参与活动" id="J_buttonConfirm" class="button-confirm" />
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<div class="popup-success">
+  恭喜你成功报名曼城球迷狂欢活动！<br />
+  活动时间：7月24日，周日，10:00-19:30<br />
+  活动地点：北京世纪金源购物中心<br />
+  <div class="text">
+    参与编号：XXXX<br />
+    报名人数：XX
+  </div>
+
+  （请保留截图或报名成功的确认短信作为入场凭证）
+</div>
+</body>
+</html>
+<script src="js/zepto.min.js"></script>
+<script>
+(function() {
+  var Forms = {
+    init: function(){
+      var self = this;
+
+      this.$form = $('#J_formList');
+      this.$button = $('#J_buttonConfirm');
+
+      // this.$select = this.$form.find('.select');
+      this.$input = this.$form.find('.input-text');
+
+      this.bind();
+    },
+    bind: function() {
+      var self = this;
+
+      this.$button.on('click', function() {
+        self.send();
+      });
+    },
+    send: function() {
+      var self = this;
+
+      var number = this.$form.find('option').not(function(){ return !this.selected }).val();
+
+      if(+number == 0){
+        alert('请选择参加人数');
+        return;
+      }
+
+      var phone = $.trim(this.$input.val());
+
+      if(phone.length < 11){
+        alert('请输入手机号');
+        return;
+      }
+
+    }
+  }
+
+  $(function(){
+    Forms.init();
+  })
+})();
+</script>

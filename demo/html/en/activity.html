@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html style="font-size: 100px;">
+<head lang="en">
+<meta charset="UTF-8">
+<meta id="viewport" name="viewport" content="initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no">
+<meta name="format-detection" content="telephone=no">
+<meta name="apple-mobile-web-app-capable" content="yes" />
+<meta name="apple-mobile-web-app-status-bar-style" content="black" />
+<title>曼城中国行</title>
+<link rel="stylesheet" href="../css/common.css">
+<script>
+(function(win, doc){
+    var docEl = doc.documentElement,
+        resizeEvt = 'orientationchange' in window ? 'orientationchange' : 'resize',
+        recalc = function () {
+            var clientWidth = docEl.clientWidth;
+            if (!clientWidth) return;
+
+            docEl.style.fontSize = 100 * (clientWidth / 320) + 'px';
+        };
+
+        // Abort if browser does not support addEventListener
+        if (!doc.addEventListener) return;
+        win.addEventListener(resizeEvt, recalc, false);
+        doc.addEventListener('DOMContentLoaded', recalc, false);
+})(window, document)
+</script>
+</head>
+<body class="ui-bg-1">
+<div class="m-wrap activity-wrap">
+  <div class="ui-header">
+    <img src="images/page2/logo_1.png" class="logo" alt=""/>
+  </div>
+  <div class="ui-title-1">
+    <a href="index.html?page=2" class="button-return"></a>
+    <h2>FOOTBALL FESTIVAL</h2>
+  </div>
+  <div class="active-con">
+    <div class="banner">
+      <div class="banner-pos">
+        <img src="../images/activity/banner.jpg" alt="">
+      </div>
+    </div>
+    <div class="content-inner">
+      <div class="content-pos">
+        <div class="about">
+          Join us for the Manchester City Football Festival Beijing at Century Golden Shopping Centre on Sunday 24th of July from 10am until 7.30pm for an exciting free event to bring together City fans in Beijing.
+        </div>
+        <div class="active-list">
+          1 Play football and join drop-in training sessions with Manchester City coaches<br />
+          2 Take a photo with our Capital One Cup trophy<br />
+          3 Win signed merchandise<br />
+          4 Be the first to see our away kit<br />
+          5 Meet our 1st team players<br />
+          6 And much more!
+        </div>
+        <div class="info">
+          Register now to guarantee the entry to the event and receive a limited edition Manchester City China tour t-shirt
+        </div>
+        <ul class="form-list">
+          <li>
+            <label for="">PARTICIPANTS：</label>
+            <div class="flex">
+              <select class="select">
+                <option value="0">*1-5 Number</option>
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+                <option value="5">5</option>
+              </select>
+            </div>  
+          </li>
+          <li>
+            <label for="">E-MAIL:</label>
+            <div class="flex">
+              <input type="text" value="" class="input-text" />
+            </div>
+          </li>
+        </ul>
+        <div class="button-inner">
+          <input type="button" value="Confirm" maxlength="11" id="J_buttonConfirm" class="button-confirm" />
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<div class="popup-success">
+  Excited? You should be. Here is your ticket to the Manchester City Football Festival on Sunday 24th of July at the Century Golden Shopping Centre. We look forward to seeing you there! Opening times are 10 to 7.30pm. 
+  <div class="text">
+    Your code: xxxx<br />
+Participants: x
+  </div>
+</div>
+</body>
+</html>
+<script src="../js/zepto.min.js"></script>
+<script>
+(function() {
+  $(function(){
+    
+  })
+})();
+</script>

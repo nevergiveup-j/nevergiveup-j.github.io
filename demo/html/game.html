@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html style="font-size: 100px;">
+<head lang="en">
+<meta charset="UTF-8">
+<meta id="viewport" name="viewport" content="initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no">
+<meta name="format-detection" content="telephone=no">
+<meta name="apple-mobile-web-app-capable" content="yes" />
+<meta name="apple-mobile-web-app-status-bar-style" content="black" />
+<title>曼城中国行</title>
+<link rel="stylesheet" href="css/common.css">
+<script>
+(function(win, doc){
+    var docEl = doc.documentElement,
+        resizeEvt = 'orientationchange' in window ? 'orientationchange' : 'resize',
+        recalc = function () {
+            var clientWidth = docEl.clientWidth;
+            if (!clientWidth) return;
+
+            docEl.style.fontSize = 100 * (clientWidth / 320) + 'px';
+        };
+
+        // Abort if browser does not support addEventListener
+        if (!doc.addEventListener) return;
+        win.addEventListener(resizeEvt, recalc, false);
+        doc.addEventListener('DOMContentLoaded', recalc, false);
+})(window, document)
+</script>
+</head>
+<body class="game-bg">
+<div class="m-wrap game-wrap">
+  <div class="ui-header">
+    <img src="images/page2/logo_1.png" class="logo" alt=""/>
+  </div>
+  <div class="game-content">
+    <div class="ui-title-1">
+      <a href="index.html?page=2" class="button-return"></a>
+      <h2>赛程信息</h2>
+    </div>
+    <div class="game-list">
+      <div class="item">
+        <div class="team team-left">
+          <div class="team-logo">
+            <img src="images/game/temp_1.png" alt=""/>
+          </div>
+          <div class="team-name">
+            曼城
+          </div>
+        </div>
+        <div class="vs-info">
+          <div class="time">
+            2016年7月25日20:00
+          </div>
+          <div class="add">
+            北京
+          </div>
+          <div class="game-vs">
+            vs
+          </div>
+        </div>
+        <div class="team team-right">
+          <div class="team-logo">
+            <img src="images/game/temp_2.png" alt=""/>
+          </div>
+          <div class="team-name">
+            曼联
+          </div>
+        </div>
+      </div>
+      <div class="item">
+        <div class="team team-left">
+          <div class="team-logo">
+            <img src="images/game/temp_3.png" alt=""/>
+          </div>
+          <div class="team-name">
+            多特蒙德
+          </div>
+        </div>
+        <div class="vs-info">
+          <div class="time">
+            2016年7月28日20:00
+          </div>
+          <div class="add">
+            深圳
+          </div>
+          <div class="game-vs">
+            vs
+          </div>
+        </div>
+        <div class="team team-right">
+          <div class="team-logo">
+            <img src="images/game/temp_2.png" alt=""/>
+          </div>
+          <div class="team-name">
+            曼联
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="game-about">
+      2016年国际冠军杯中国赛即将开幕，曼城足球俱乐部将作为今年参赛球队之一，于2016年7月挑战曼联足球俱乐部，这将是历史上第一次发生在英国国土之外的曼彻斯特德比。<br /><br />
+
+      届时，曼彻斯特德比将会于7月25日在中国北京标志性的球馆鸟巢举行。在不久之后的7月28日，曼城将会在中国的新兴科技中心深圳，与多特蒙德足球俱乐部进行第二场国际冠军杯中国赛的比赛。
+
+    </div>
+  </div>
+</div>
+</body>
+</html>
+<script src="js/zepto.min.js"></script>
+<script src="js/slide-page.js"></script>
+<script src="js/main.js"></script>

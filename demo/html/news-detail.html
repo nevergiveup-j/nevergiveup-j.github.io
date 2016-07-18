@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html style="font-size: 100px;">
+<head lang="en">
+<meta charset="UTF-8">
+<meta id="viewport" name="viewport" content="initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no">
+<meta name="format-detection" content="telephone=no">
+<meta name="apple-mobile-web-app-capable" content="yes" />
+<meta name="apple-mobile-web-app-status-bar-style" content="black" />
+<title>曼城中国行</title>
+<link rel="stylesheet" href="css/common.css">
+<script>
+(function(win, doc){
+    var docEl = doc.documentElement,
+        resizeEvt = 'orientationchange' in window ? 'orientationchange' : 'resize',
+        recalc = function () {
+            var clientWidth = docEl.clientWidth;
+            if (!clientWidth) return;
+
+            docEl.style.fontSize = 100 * (clientWidth / 320) + 'px';
+        };
+
+        // Abort if browser does not support addEventListener
+        if (!doc.addEventListener) return;
+        win.addEventListener(resizeEvt, recalc, false);
+        doc.addEventListener('DOMContentLoaded', recalc, false);
+})(window, document)
+</script>
+</head>
+<body class="ui-bg-2">
+<div class="m-wrap news-detail-wrap">
+  <div class="ui-header">
+    <img src="images/page2/logo_1.png" class="logo" alt=""/>
+  </div>
+  <div class="news-inner">
+    <div class="artical-title">
+      <h1 class="headline">城迷福利：曼城中国行抽奖活动</h1>
+      <div class="blog-link">
+        <ul class="blog-list">
+          <li>
+              <a href="http://weibo.com/mcfcofficial">
+                  <i class="icon-weibo"></i>
+                  @曼城足球俱乐部MCFC
+              </a>
+          </li>
+          <li>
+              <i class="icon-weixin"></i>
+              曼城足球俱乐部
+          </li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="article-content">
+      <img src="http://bbsstaticoss.hoopchina.com.cn/aHR0cDovL2ltZzA0LnN0b3JlLnNvZ291LmNvbS9uZXQvYS82Ni9saW5rP2FwcGlkPTY2JnVybD1odHRwOi8vYzEuaG9vcGNoaW5hLmNvbS5jbi91cGxvYWRzL3N0YXIvZXZlbnQvaW1hZ2VzLzE2MDcxMi8wZWEzNzJjOTU2NGE5MmFhNzJmNDkyMGE5OWIxODA5YWQxYTMyYTJiLmpwZw" alt="">
+      <p>德国足协官方宣布，厄齐尔被球迷们评选为德国队2016年欧洲杯的最佳球员。</p>
+      <p>值得一提的是，0-2不敌法国队的比赛，厄齐尔也被球迷评选为德国队当场比赛最佳球员。</p>
+    </div>
+  </div>
+</div>
+
+</body>
+</html>
+<script src="js/zepto.min.js"></script>
+<script>
+(function() {
+  $(function(){
+    
+  })
+})();
+</script>

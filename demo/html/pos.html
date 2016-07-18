@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html style="font-size: 100px;">
+<head lang="en">
+<meta charset="UTF-8">
+<meta id="viewport" name="viewport" content="initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no">
+<meta name="format-detection" content="telephone=no">
+<meta name="apple-mobile-web-app-capable" content="yes" />
+<meta name="apple-mobile-web-app-status-bar-style" content="black" />
+<title>aaaaaa</title>
+<link rel="stylesheet" href="css/common.css">
+<script>
+(function(win, doc){
+    var docEl = doc.documentElement,
+        resizeEvt = 'orientationchange' in window ? 'orientationchange' : 'resize',
+        recalc = function () {
+            var clientWidth = docEl.clientWidth;
+            if (!clientWidth) return;
+
+            docEl.style.fontSize = 100 * (clientWidth / 320) + 'px';
+        };
+
+        // Abort if browser does not support addEventListener
+        if (!doc.addEventListener) return;
+        win.addEventListener(resizeEvt, recalc, false);
+        doc.addEventListener('DOMContentLoaded', recalc, false);
+})(window, document)
+</script>
+</head>
+<style>
+  .page {
+    height: 500px;
+    background: #eee;
+  }
+  .page-2 {
+    background: #ddd;
+  }
+</style>
+<body>
+<div class="page page-1"></div>
+<div class="page page-2"></div>
+<div class="page page-3"></div>
+</body>
+</html>
+<script src="js/zepto.min.js"></script>
+
+<script>
+function getQueryString(name) {  
+    var reg = new RegExp("(^|&)" + name + "=([^&]*)(&|$)", "i");  
+    var r = window.location.search.substr(1).match(reg);  
+    if (r != null) return unescape(r[2]); return null;  
+}  
+
+console.log(+getQueryString('page') === 2);
+</script>

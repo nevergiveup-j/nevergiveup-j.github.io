@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html style="font-size: 100px;">
+<head lang="en">
+<meta charset="UTF-8">
+<meta id="viewport" name="viewport" content="initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no">
+<meta name="format-detection" content="telephone=no">
+<meta name="apple-mobile-web-app-capable" content="yes" />
+<meta name="apple-mobile-web-app-status-bar-style" content="black" />
+<title>Tour 2016</title>
+<link rel="stylesheet" href="../css/common.css">
+<script>
+(function(win, doc){
+    var docEl = doc.documentElement,
+        resizeEvt = 'orientationchange' in window ? 'orientationchange' : 'resize',
+        recalc = function () {
+            var clientWidth = docEl.clientWidth;
+            if (!clientWidth) return;
+
+            docEl.style.fontSize = 100 * (clientWidth / 320) + 'px';
+        };
+
+        // Abort if browser does not support addEventListener
+        if (!doc.addEventListener) return;
+        win.addEventListener(resizeEvt, recalc, false);
+        doc.addEventListener('DOMContentLoaded', recalc, false);
+})(window, document)
+</script>
+</head>
+<body class="game-bg">
+<div class="m-wrap game-wrap en-game-wrap">
+  <div class="ui-header">
+    <img src="../images/en/page2/logo_1.png" class="logo" alt=""/>
+  </div>
+  <div class="game-content">
+    <div class="ui-title-1">
+      <a href="index.html?page=2" class="button-return"></a>
+      <h2>TOUR FIXTURES</h2>
+    </div>
+    <div class="game-list">
+      <div class="item">
+        <div class="team team-left">
+          <div class="team-logo">
+            <img src="../images/game/temp_1.png" alt=""/>
+          </div>
+          <div class="team-name">
+            MANCHESTER CITY FC
+          </div>
+        </div>
+        <div class="vs-info">
+          <div class="time">
+            7\25\16 8:00PM CST
+          </div>
+          <div class="add">
+            Beijing,China
+          </div>
+          <div class="game-vs">
+            vs
+          </div>
+        </div>
+        <div class="team team-right">
+          <div class="team-logo">
+            <img src="../images/game/temp_2.png" alt=""/>
+          </div>
+          <div class="team-name">
+            MANCHESTER UNITED
+          </div>
+        </div>
+      </div>
+      <div class="item">
+        <div class="team team-left">
+          <div class="team-logo">
+            <img src="../images/game/temp_3.png" alt=""/>
+          </div>
+          <div class="team-name">
+            BORUSSIA DORTMUND
+          </div>
+        </div>
+        <div class="vs-info">
+          <div class="time">
+            7\28\16 8:00PM CST
+          </div>
+          <div class="add">
+            TBA,China
+          </div>
+          <div class="game-vs">
+            vs
+          </div>
+        </div>
+        <div class="team team-right">
+          <div class="team-logo">
+            <img src="../images/game/temp_2.png" alt=""/>
+          </div>
+          <div class="team-name">
+            MANCHESTER CITY FC
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="game-about">
+      City will play United as part of ICC China in July 2016 in the first ever Manchester derby to take place outside the United Kingdom.<br /><br />
+
+      The game will take place at the iconic Bird's Nest stadium in Beijing on 25 July as part of the International Champions Cup China, before the Blues play Borussia Dortmund on 28 July in booming technology hub Shenzhen.
+
+
+    </div>
+  </div>
+</div>
+</body>
+</html>
+<script src="../js/zepto.min.js"></script>
+<script src="../js/slide-page.js"></script>
+<script src="../js/main.js"></script>

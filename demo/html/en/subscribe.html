@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html style="font-size: 100px;">
+<head lang="en">
+<meta charset="UTF-8">
+<meta id="viewport" name="viewport" content="initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no">
+<meta name="format-detection" content="telephone=no">
+<meta name="apple-mobile-web-app-capable" content="yes" />
+<meta name="apple-mobile-web-app-status-bar-style" content="black" />
+<title>Tour 2016</title>
+<link rel="stylesheet" href="../css/common.css">
+<script>
+(function(win, doc){
+    var docEl = doc.documentElement,
+        resizeEvt = 'orientationchange' in window ? 'orientationchange' : 'resize',
+        recalc = function () {
+            var clientWidth = docEl.clientWidth;
+            if (!clientWidth) return;
+
+            docEl.style.fontSize = 100 * (clientWidth / 320) + 'px';
+        };
+
+        // Abort if browser does not support addEventListener
+        if (!doc.addEventListener) return;
+        win.addEventListener(resizeEvt, recalc, false);
+        doc.addEventListener('DOMContentLoaded', recalc, false);
+})(window, document)
+</script>
+</head>
+<body class="ui-bg-1">
+<div class="m-wrap subscribe-wrap en-subscribe-wrap">
+  <div class="ui-header">
+    <img src="../images/en/page2/logo_1.png" class="logo" alt=""/>
+  </div>
+  <div class="ui-title-1">
+    <a href="index.html?page=2" class="button-return"></a>
+  </div>
+  <div class="content">
+    <div class="banner-text">
+      <div class="main-title">
+        Subscribe Manchester City FC
+      </div>
+      <div class="sub-title">
+        Obtain latest updates<br />
+        of the China Tour.
+      </div>
+    </div>
+    <div class="phone-rss">
+      <div class="rss-text">
+        <img src="../images/subscribe/logo.png" alt=""/>
+      </div>
+      <div class="text-col">
+        <div class="text">MOBILE:</div>
+        <input type="text" value="" class="input-phone"/>
+      </div>
+      <input type="button" class="button-sub"/>
+    </div>
+  </div>
+
+</div>
+</body>
+</html>
+<script src="../js/zepto.min.js"></script>
+<script src="../js/slide-page.js"></script>
+<script src="../js/main.js"></script>

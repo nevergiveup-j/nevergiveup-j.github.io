@@ -1,0 +1,347 @@
+<!DOCTYPE html>
+<html style="font-size: 100px;">
+<head lang="en">
+<meta charset="UTF-8">
+<meta id="viewport" name="viewport" content="initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no">
+<meta name="format-detection" content="telephone=no">
+<meta name="apple-mobile-web-app-capable" content="yes" />
+<meta name="apple-mobile-web-app-status-bar-style" content="black" />
+<title>Tour 2016</title>
+<link rel="stylesheet" href="../css/common.css">
+<script>
+(function(win, doc){
+    var docEl = doc.documentElement,
+        resizeEvt = 'orientationchange' in window ? 'orientationchange' : 'resize',
+        recalc = function () {
+            var clientWidth = docEl.clientWidth;
+            if (!clientWidth) return;
+
+            docEl.style.fontSize = 100 * (clientWidth / 320) + 'px';
+        };
+
+        // Abort if browser does not support addEventListener
+        if (!doc.addEventListener) return;
+        win.addEventListener(resizeEvt, recalc, false);
+        doc.addEventListener('DOMContentLoaded', recalc, false);
+})(window, document)
+</script>
+</head>
+<body class="ui-bg-1">
+<div class="m-wrap about-wrap">
+  <div class="ui-header">
+    <img src="../images/en/page2/logo_1.png" class="logo" alt=""/>
+  </div>
+  <div class="ui-title-1">
+    <a href="index.html?page=2" class="button-return"></a>
+    <h2>ABOUT MANCHESTER CITY</h2>
+  </div>
+  <div class="about">
+    Manchester City founded in 1894 are an English football team currently playing in the English Premier League.
+    The last five years have seen Manchester City claim all of English football’s major domestic trophies, as well as establishing them as a major force on the European stage.
+    <div class="button-inner">
+      <a href="javascript:" class="button-more" id="J_buttonMore">DETAILS</a>
+    </div>
+  </div>
+  <div class="blog-link">
+    <ul class="blog-list">
+      <li>
+        <i class="icon-weibo"></i>
+        @曼城足球俱乐部MCFC
+      </li>
+      <li>
+        <i class="icon-weixin"></i>
+        曼城足球俱乐部
+      </li>
+    </ul>
+  </div>
+  <div class="main-player">
+    <div class="player-title">
+      <h4>KEY PLAYERS</h4>
+    </div>
+    <div class="player-list">
+      <ul class="item" id="J_playerItem">
+        <li>
+          <div class="inner">
+            <div class="pic">
+              <img src="../images/about/temp_1.jpg" alt=""/>
+              <div class="ch-name">阿奎罗</div>
+            </div>
+            <div class="en-name">
+              SERGIO<br />
+              AGUERO
+            </div>
+            <div class="country">
+              <div class="coutry-logo">
+                <img src="../images/about/c_1.jpg" alt=""/>
+              </div>
+              <div class="coutry-name">
+                ARGENTINIAN
+              </div>
+              <div class="pos">10</div>
+            </div>
+          </div>
+        </li>
+        <li>
+          <div class="inner">
+            <div class="pic">
+              <img src="../images/about/temp_2.jpg" alt=""/>
+              <div class="ch-name">德布劳内</div>
+            </div>
+            <div class="en-name">
+              KEVIN<br />
+              DE BRUYNE
+            </div>
+            <div class="country">
+              <div class="coutry-logo">
+                <img src="../images/about/c_2.jpg" alt=""/>
+              </div>
+              <div class="coutry-name">
+                BELGIAN
+              </div>
+              <div class="pos">17</div>
+            </div>
+          </div>
+        </li>
+        <li>
+          <div class="inner">
+            <div class="pic">
+              <img src="../images/about/temp_3.jpg" alt=""/>
+              <div class="ch-name">席尔瓦</div>
+            </div>
+            <div class="en-name">
+              DAVID<br />
+              SILVA
+            </div>
+            <div class="country">
+              <div class="coutry-logo">
+                <img src="../images/about/c_3.jpg" alt=""/>
+              </div>
+              <div class="coutry-name">
+                SPANISH
+              </div>
+            </div>
+            <div class="pos">21</div>
+          </div>
+        </li>
+      </ul>
+    </div>
+  </div>
+</div>
+<div class="ui-popup-about ui-popup" id="J_popupAbout">
+  <a href="javascript:" class="ui-button-close J_buttonClose"></a>
+  <div class="about-scroll">
+    <div class="main-title">
+      ABOUT MANCHESTER CITY FC
+    </div>
+    <div class="content">
+      Manchester City founded in 1894 are an English football team currently playing in the English Premier League.<br /><br />
+
+      The last five years have seen Manchester City claim all of English football’s major domestic trophies, as well as establishing them as a major force on the European stage.<br /><br />
+
+      Manchester City have some of the greatest players in the world who combine together to create beautiful football, these players include; Sergio ‘Kun Aguero’, Joe Hart, David Silva and Kevin De Bruyne
+      President Xi Jinping, visited the City Football Academy on October 23rd, home to Manchester City Football Club and headquarters of its global football organisation, City Football Group.<br /><br />
+
+      Manchester City FC is part of City Football Group – a global network of football clubs, including New York City FC, Melbourne City FC and Yokohama F Marinos
+
+    </div>
+  </div>
+</div>
+<div class="ui-popup-player ui-popup">
+  <a href="javascript:" class="ui-button-close J_buttonClose"></a>
+  <div class="ui-popup-scroll">
+    <div class="player-content">
+      <div class="col-left">
+        <div class="coutry-logo">
+          <img src="../images/about/c_1.jpg" alt=""/>
+        </div>
+        <div class="en-name">
+          SERGIO<br />
+          AGUERO
+        </div>
+        <div class="ch-name">赛尔吉奥·阿奎罗</div>
+        <div class="about-info">
+          JOIN MANCHESTER CITY: 27 July, 2011<br />
+          POSITION: FORWARD<br />
+          AGE: 27<br />
+          NATIONALITY: ARGENTINIAN<br />
+          SHIRT NUMBER: 10
+
+        </div>
+        <div class="blog-link">
+          <ul class="blog-list">
+            <li>
+              <i class="icon-weibo"></i>
+              @阿奎罗Sergio
+            </li>
+            <li>
+              <i class="icon-f"></i>
+              aguerosergiokun
+            </li>
+            <li>
+              <i class="icon-t"></i>
+              aguerosergiokun16
+            </li>
+          </ul>
+        </div>
+      </div>
+      <div class="col-right">
+        <div class="pic">
+          <img src="../images/about/big_1.png" alt=""/>
+        </div>
+        <div class="text-pos">
+          <div class="pos">
+            10
+          </div>
+          <div class="coutry">FORWARD</div>
+        </div>
+      </div>
+    </div>
+    <div class="about-1">
+      Sergio Aguero wrote his name into Manchester City’s history books on 13 May 2012 when he scored in the last minute of the last match of the season, grabbing the winner against QPR to win the Premier League title in the most dramatic way imaginable.<br />
+
+      The Argentine striker looked at home in English football as soon as he moved to City from Atletico Madrid in 2011. In April 2016 he scored his 100th Premier League goal for the club, at 147 games the second-fastest player to reach that mark. He won the coveted Golden Boot in 2015 for topping the Premier League scoring charts for that season.
+
+    </div>
+  </div>
+</div>
+
+<div class="ui-popup-player ui-popup">
+  <a href="javascript:" class="ui-button-close J_buttonClose"></a>
+  <div class="ui-popup-scroll">
+    <div class="player-content">
+      <div class="col-left">
+        <div class="coutry-logo">
+          <img src="../images/about/c_2.jpg" alt=""/>
+        </div>
+        <div class="en-name">
+          KEVIN<br />
+          DE<br />
+          BRUYNE
+        </div>
+        <div class="ch-name">凯文·德布劳内</div>
+        <div class="about-info">
+          JOIN MANCHESTER CITY: 29 August, 2015<br />
+          POSITION: MIDFIELDER<br />
+          AGE: 24<br />
+          NATIONALITY: BELGIUM<br />
+          SHIRT NUMBER: 17
+
+
+        </div>
+        <div class="blog-link">
+          <ul class="blog-list">
+            <li>
+              <i class="icon-f"></i>
+              debruynekev
+            </li>
+            <li>
+              <i class="icon-t"></i>
+              Kalle14
+            </li>
+          </ul>
+        </div>
+      </div>
+      <div class="col-right">
+        <div class="pic">
+          <img src="../images/about/big_2.png" alt=""/>
+        </div>
+        <div class="text-pos">
+          <div class="pos">
+            17
+          </div>
+          <div class="coutry">MIDFIELDER</div>
+        </div>
+      </div>
+    </div>
+    <div class="about-1">
+      Belgian attacking midfielder Kevin De Bruyne has been an instant hit with City fans in his first season since joining from Wolfsburg.<br />
+
+      At home either playing out wide or just behind the striker, Kevin turned in some dynamic performances and came up with some crucial goals. Five in the Capital One League Cup helped the clubs in their successful run to the final, and a brilliant strike against Paris St-Germain put the club into its first Champions League semi-final. Aged 24, there looks to be a lot more still to come from the ex-Chelsea man.
+
+
+    </div>
+  </div>
+</div>
+
+<div class="ui-popup-player ui-popup">
+  <a href="javascript:" class="ui-button-close J_buttonClose"></a>
+  <div class="ui-popup-scroll">
+    <div class="player-content">
+      <div class="col-left">
+        <div class="coutry-logo">
+          <img src="../images/about/c_3.jpg" alt=""/>
+        </div>
+        <div class="en-name">
+          DAVID<br />
+          SILVA
+        </div>
+        <div class="ch-name">大卫·席尔瓦</div>
+        <div class="about-info">
+          JOIN MANCHESTER CITY: 1 July, 2010<br />
+          POSITION: MIDFIELDER<br />
+          AGE: 30<br />
+          NATIONALITY: SPANISH<br />
+          SHIRT NUMBER: 21
+
+        </div>
+        <div class="blog-link">
+          <ul class="blog-list">
+            <li>
+              <i class="icon-f"></i>
+              21LVA
+            </li>
+            <li>
+              <i class="icon-t"></i>
+              21lvaoficial
+            </li>
+          </ul>
+        </div>
+      </div>
+      <div class="col-right">
+        <div class="pic">
+          <img src="../images/about/big_3.png" alt=""/>
+        </div>
+        <div class="text-pos">
+          <div class="pos">
+            21
+          </div>
+          <div class="coutry">MIDFIELDER</div>
+        </div>
+      </div>
+    </div>
+    <div class="about-1">
+      David Silva joined City fresh from being part of the brilliant Spain side that won the 2010 World Cup.He settled in quickly, and his first goal for City, a magnificent curled shot after a typically incisive run against Blackpool, proved to be a taste of what was to come.<br />
+
+      He’s been a crucial part of the side that has claimed two Premier League titles, two League Cups and the FA Cup, teasing opponents with his clever passing, quick thinking and eye for a goal.
+
+
+
+
+    </div>
+  </div>
+</div>
+</body>
+</html>
+<script src="../js/zepto.min.js"></script>
+<script src="../js/slide-page.js"></script>
+<script src="../js/main.js"></script>
+<script>
+(function() {
+  $(function(){
+    // about
+    $('#J_buttonMore').on('click', function() {
+      $('#J_popupAbout').addClass('ui-popup-show');
+    });
+
+    $('#J_playerItem li ').on('click', function() {
+      $('.ui-popup-player').eq($(this).index()).addClass('ui-popup-show');
+    });
+
+    $('.J_buttonClose').on('click', function() {
+      var parent = $(this).parents('.ui-popup');
+
+      parent.removeClass('ui-popup-show');
+    })
+  })
+})();
+</script>
