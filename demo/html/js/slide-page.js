@@ -367,8 +367,6 @@
                     return;
                 }
             }
-        }else{
-            event.preventDefault();
         }
 
         // 页面不循环切换，第一页阻止切换最后一页，
@@ -403,6 +401,8 @@
 
             this.setInitNext();
         }
+
+        event.preventDefault();
 
         this.moveTranslate();
 
