@@ -314,7 +314,8 @@
 
         if(this.isSrcoll){
             // pageNow
-            this.$pageSrcoll = this.$pages.eq(this.opts.pageNow).find('.page-scroll');
+            this.$pageSrcoll = this.$pages.eq(1).find('.page-scroll-height');
+
             this.startScrollTop = that.$pageSrcoll.scrollTop();
         }
 
