@@ -764,7 +764,7 @@ a:hover {
 .m-page.page-active {
   z-index: 50; }
 .m-page .page-content {
-  overflow: scroll;
+  overflow: auto;
 }
 
 .game-bg {
