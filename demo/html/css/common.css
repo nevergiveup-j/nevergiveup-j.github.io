@@ -1284,6 +1284,9 @@ a:hover {
     padding: 0 .05rem;
     border: 1px solid #fec748;
     background: #98c2e8; }
+  .activity-wrap .content-pos .form-list .select {
+    -webkit-appearance:none;
+  }  
   .activity-wrap .content-pos .button-inner {
     padding-top: .15rem;
     text-align: center; }
