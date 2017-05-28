@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+<meta charset="UTF-8">
+<meta id="viewport" name="viewport" content="initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no">
+<meta name="format-detection" content="telephone=no">
+<meta name="apple-mobile-web-app-capable" content="yes" />
+<meta name="apple-mobile-web-app-status-bar-style" content="black" />
+<title>nfl</title>
+<link rel="stylesheet" href="css/game.css">
+
+</head>
+<body>
+<div id="game"></div>
+<div class="start-page" id="J_startPage" style="display: none;">
+  <div class="start-game">
+    <a href="javascript:" class="ui-button-1" id="J_startGame">开始游戏</a>
+  </div>
+</div>
+<div class="game-rule" id="J_gameRule" style="display: none;">
+  <h2>
+    <img src="images/start_title.png" alt="">
+  </h2>
+  <div class="text">
+    在30秒内，挥动冰球杆，<br />
+尽力把球打进网内吧！<br />
+注意！<br />
+进球愈多，<br />
+奖品愈丰富！
+  </div>
+  <div class="button-inner">
+    <a href="javascript:" class="ui-button-1" id="J_ruleGameStart">开始游戏</a>
+  </div>
+</div>
+<div class="game-end" id="J_gameEnd">
+  <h2>
+    <img src="images/game_end_title.png" alt="">
+  </h2>
+  <div class="text">
+    你打进了<span id="J_ballNumber">0</span>个球！
+  </div>
+  <div class="button-inner">
+    <a href="javascript:" class="ui-button-1">查看排名</a>
+  </div>
+</div>
+
+</body>
+</html>
+<script src="js/zepto.min.js"></script>
+<script src="js/phaser/phaser.min.js"></script>
+<script src="js/phaser/custom/p2.min.js"></script>
+<script src="js/game.js"></script>
