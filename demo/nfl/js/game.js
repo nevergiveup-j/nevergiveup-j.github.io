@@ -92,7 +92,7 @@
 
         // 添加点击事件
         // Game.input.onTap.add(function() {
-            Game.state.start('play');
+            // Game.state.start('play');
         // });
         
 			}
@@ -128,8 +128,8 @@
 
           if(gameTimes <= 0) {
             clearInterval(timer);
-            // gameEnd();
-            // Game.state.start('created');
+            gameEnd();
+            Game.state.start('created');
           }
         }, 1000)
 
@@ -174,7 +174,7 @@
 
         Game.add.tween(goalkeeper).to({ x: width * 0.8 },1000,null,true,0,Number.MAX_VALUE,true);
 
-        stick = Game.add.sprite(centerX, height * 0.67, 'stick');
+        stick = Game.add.sprite(centerX, ballDefaultY, 'stick');
         var stickImage = Game.cache.getImage('stick');
         stick.width = width * 0.35;
         stick.height = stick.width / stickImage.width * stickImage.height;
@@ -189,7 +189,7 @@
 
         createBall();
 
-        ballTimer.loop(1000, createBall);
+        ballTimer.loop(500, createBall);
 
         ballTimer.start();
 
@@ -201,8 +201,10 @@
           ballDefaultX = Game.world.randomX;
 
 
-        	ball = balls.create(ballDefaultX, ballDefaultY, 'ball');
+          ball = balls.create(ballDefaultX, ballDefaultY, 'ball');
+        	// ball = balls.create(centerX, ballDefaultY, 'ball');
         	ball.type = 'ball';
+          ball.alpha = 0;
 
         	var ballImage = Game.cache.getImage('ball');
 	        ball.width = width * 0.1;
@@ -221,6 +223,10 @@
 
         	Game.physics.enable(ball);
 
+          Game.add.tween(ball).to({ 
+            alpha: 1
+          },100,Phaser.Easing.Linear.None,true,0,0,false);
+
           Game.add.tween(stick).to({ 
             x: ballDefaultX
           },100,Phaser.Easing.Linear.None,true,0,0,false);
@@ -228,13 +234,6 @@
         	isBall = true;
           isballKill = true;
 
-        	// angle
-
-        	// ball.body.acceleration.y = 50;
-        	
-        	// ball.body.maxAngular = 0.5;
-
-        	// ball.body.allowRotation = true;
         	// 边缘碰撞
 	        ball.body.collideWorldBounds = true;
           ball.body.onWorldBounds = new Phaser.Signal();
@@ -276,21 +275,17 @@
 
           ballTweenY = ballY;
           stick.y = ballTweenY;
+          stick.x = ballX;
 
-
-          var stickTween = Game.add.tween(stick).to({ 
-            y: ballTweenY - 30
-            // alpha: 0
+          Game.add.tween(stick).to({ 
+            y: ballTweenY - 30,
+            angle: 45
           },100,Phaser.Easing.Linear.None,true,0,0,true);
-
-          stickTween.onComplete.add(function() {
-            stick.y = ballTweenY;
-          })
 
           if(startY - pointer.y > 5) {
             Game.physics.arcade.moveToPointer(ball, height);
           }else{
-            ball.body.velocity.y = -Game.world.height;
+            ball.body.velocity.y = -height * 1.2;
           }
           
           touching = false;
@@ -305,8 +300,6 @@
       		endY = y;
       	})
         
-
-        // console.log(ball)
 			}
 
 			this.update = function() {
@@ -346,7 +339,7 @@
 			}			
 
       function goalkCb(goalk, ball) {
-        ball.body.velocity.y = Game.world.height / 2;
+        ball.body.velocity.y = Game.world.height;
       }
 
 			// 进球
@@ -358,14 +351,15 @@
         isScoreTween = true;
 
         var showTween = Game.add.tween(ball).to({ 
-            y: ball.y - 50
-          },100,Phaser.Easing.Linear.None,true,0,0,false);
+            y: goal.y + 10
+            // x: goal.x
+          },80,Phaser.Easing.Linear.None,true,0,0,false);
 				
         showTween.onComplete.add(function() {
           var hideTween = Game.add.tween(ball).to({ 
-            y: ball.y - 10,
+            y: goal.y,
             alpha: 0
-          },100,Phaser.Easing.Linear.None,true,0,0,false);
+          },80,Phaser.Easing.Linear.None,true,0,0,false);
           hideTween.onComplete.add(function() {
             isScoreTween = false;
             ball.kill();
@@ -376,7 +370,7 @@
 
 				score += 1;
 
-        // createNumber(score);
+        createNumber(score);
 
 				console.log('score==' + score)
 			}
@@ -393,19 +387,19 @@
 	}
 
 
-  // function gameEnd() {
-  //   $('#J_gameEnd').show();
-  //   $('#J_ballNumber').html(score)
-  // }
+  function gameEnd() {
+    $('#J_gameEnd').show();
+    $('#J_ballNumber').html(score)
+  }
 
-  // $('#J_startGame').on('click', function() {
-  //   $('#J_startPage').hide();
-  // });
+  $('#J_startGame').on('click', function() {
+    $('#J_startPage').hide();
+  });
 
-  // $('#J_ruleGameStart').on('click', function() {
-  //   $('#J_gameRule').hide();
-  //   Game.state.start('play');
-  // });
+  $('#J_ruleGameStart').on('click', function() {
+    $('#J_gameRule').hide();
+    Game.state.start('play');
+  });
 
 	// Make.init();
 	Object.keys(States).map(function(key) {
