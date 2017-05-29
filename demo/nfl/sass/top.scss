@@ -1,0 +1,150 @@
+@charset "utf-8";
+
+@import "vendor/sassCore/base";
+@import "vendor/sassCore/core/reset";
+
+html,
+body {
+    height: 100%;
+    overflow: hidden;
+}
+
+body {
+    background: #eee url(../images/top/bg.jpg) no-repeat 0 0;
+    background-size: 100% 100%;
+}
+
+// 灰色遮罩怎么去掉
+a, button, input, textarea{
+    -webkit-tap-highlight-color: rgba(0,0,0,0);
+}
+
+a:hover {
+    @include transition(all .15s ease-out);
+}
+
+*, *:before, *:after {
+    @include box-sizing(border-box);
+}
+
+// 浮动及闭合浮动
+.fn-fl{
+    @include float;
+}
+.fn-fr{
+    @include float(right);
+}
+
+.fn-clear {
+    display:block;
+    float:none;
+    clear:both;
+    overflow:hidden;
+    width:auto;
+    height:0;
+    margin:0 auto;
+    padding:0;
+    font-size:0;
+    line-height:0;
+}
+.fn-clearfix {
+    @extend %clearfix;
+}
+
+.fn-hide {
+    display: none;
+}
+
+.ui-button-1 {
+    @include inline-block;
+    width: 130px;
+    height: 45px;
+    margin-top: 15px;
+    line-height: 34px;
+    overflow: hidden;
+    text-align: center;
+    font-size: 20px;
+    font-weight: 700;
+    background: url(../images/button_bg.png) no-repeat 0 0;
+    background-size: cover;
+    color: #000;
+}
+
+
+.ui-top {
+    
+    .logo {
+        padding: 18px 0 15px;
+        text-align: center;
+        img {
+            width: 115px;
+        }
+    }
+}
+
+.index-top {
+    .index-contact {
+        @include display-flex;
+        padding: 0 28px;
+        .pic {
+            margin-right: 20px;
+            img {
+                width: 115px;
+            }
+        }
+        .list {
+            li {
+                margin-top: 6px;
+            }
+            img {
+                width: 128px;
+            }
+        }
+    }
+}
+
+.top-detail {
+    .logo {
+        img {
+            width: 100px;
+        }
+    }
+    .detail-contact {
+        position: relative;
+        margin: 40px 30px 0;
+        padding: 54px 5px 20px;
+        background: url(../images/top/top_bg_1.jpg) no-repeat 0 0;
+        background-size: cover;
+        border: 1px solid #000;
+    }
+    .title {
+        position: absolute;
+        top: -50px;
+        left: 0;
+        img {
+            width: 280px;
+        }
+    }
+    .title-2,
+    .title-4 {
+        img {
+            width: 232px;
+        }
+    }
+    .title-3,
+    .title-5 {
+        img {
+            width: 280px;
+        }
+    }
+    .bd {
+        text-align: center;
+        font-size: 18px;
+        .red {
+            color: #ef0000;
+        }
+    }
+    .button-inner {
+        text-align: center;
+    }
+}

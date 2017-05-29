@@ -7,7 +7,7 @@
 <meta name="apple-mobile-web-app-capable" content="yes" />
 <meta name="apple-mobile-web-app-status-bar-style" content="black" />
 <title>nfl</title>
-<link rel="stylesheet" href="css/game.css">
+<link rel="stylesheet" href="css/game.css?t=2">
 
 </head>
 <body>
@@ -32,6 +32,15 @@
     <a href="javascript:" class="ui-button-1" id="J_ruleGameStart">开始游戏</a>
   </div>
 </div>
+<div class="game-pasue-popup" id="J_gamePasuePopup">
+  <a href="javascript:" class="button-goGame J_buttonGoGame">
+    <img src="images/state_pause.png" alt="">
+  </a>
+  <br />
+  <a href="javascript:" class="button-refresh J_buttonRefreshGame">
+    <img src="images/state_play.png" alt="">
+  </a>
+</div>
 <div class="game-end" id="J_gameEnd">
   <h2>
     <img src="images/game_end_title.png" alt="">
@@ -49,4 +58,4 @@
 <script src="js/zepto.min.js"></script>
 <script src="js/phaser/phaser.min.js"></script>
 <script src="js/phaser/custom/p2.min.js"></script>
-<script src="js/game.js"></script>
+<script src="js/game.js?t=3"></script>

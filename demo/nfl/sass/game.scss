@@ -138,3 +138,22 @@ a:hover {
         }
     }
 }
+
+
+.game-pasue-popup {
+    display: none;
+    position: absolute;
+    top: 50%;
+    left: 0;
+    right: 0;
+    width: 100%;
+    z-index: 93;
+    text-align: center;
+    @include translate(0, -50%);
+    a {
+    }
+    img {
+        width: 138px;
+        margin: 10px 0;
+    }
+}

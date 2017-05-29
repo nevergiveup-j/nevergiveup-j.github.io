@@ -8,6 +8,65 @@
   var gameTimes = 30;
   var score = 0;
   var timer = null;
+  var groupButton;
+
+
+  var stick;
+  var balls;
+  var ball;
+  var ballX = 0;
+  var ballY = 0;
+  var goal;
+  var goalkeeper;
+  var isBall = false;
+  var isballKill = true; 
+  var isScoreTween = false;
+
+  // 创建数
+  function createNumber(number, isleft) {
+    var width = Game.world.width;
+    var height = Game.world.height;
+    var x = Game.world.centerX * 0.56;
+
+    if(!isleft) {
+      x = width * 0.9;
+    }
+
+    if(+number <= 9) {
+      number = '0' + number;
+    }
+
+    var arr = number.toString().split('');
+
+    var number1 = Game.add.image(x, height * 0.1, 'number_' + arr[0], 'number');
+    var numberImage = Game.cache.getImage('number');
+    number1.width = parseInt(width * 0.04);
+    number1.height = parseInt(number1.width * 1.2);
+
+    number1.anchor.setTo(0.5, 0.5);
+
+    var number2 = Game.add.image(x + number1.width + 2, height * 0.1, 'number_' + arr[1], 'number');
+    number2.width = parseInt(width * 0.04);
+    number2.height = parseInt(number1.width * 1.2);
+
+    number2.anchor.setTo(0.5, 0.5);
+
+    
+  }   
+
+
+  function restartTime() {
+    timer = setInterval(function() {
+      gameTimes--;
+      createNumber(gameTimes, true);
+
+      if(gameTimes <= 0) {
+        clearInterval(timer);
+        gameEnd();
+        Game.state.start('created');
+      }
+    }, 1000)
+  }
 
 	var States = {
 		preload: function() {
@@ -16,9 +75,14 @@
 				Game.stage.backgroundColor = '#eee';
 				Game.load.crossOrigin = 'anonymous';
 
-				Game.load.image('start_bg', './images/start_game.png');
 				Game.load.image('state_bg', './images/state_bg.jpg');
-				Game.load.image('top_bg', './images/top_bg.png');
+        Game.load.image('logo', './images/logo.png');
+        Game.load.image('top_bg', './images/top_bg.png');
+        Game.load.spritesheet('top_button_pause', './images/button_pause.png');
+        Game.load.spritesheet('top_button_play', './images/button_play.png');
+        Game.load.image('state_play', './images/state_play.png');
+        Game.load.image('state_pause', './images/state_pause.png');
+				Game.load.image('top_button_play', './images/button_play.png');
 				Game.load.image('goal', './images/goal.png');
 				Game.load.image('goalkeeper', './images/goalkeeper.png');
 				Game.load.image('stick', './images/stick.png');
@@ -68,25 +132,36 @@
         bg.width = width;
         bg.height = height;
 
-        var topBg = Game.add.image(centerX, height * 0.08, 'top_bg');
+        var topBg = Game.add.image(centerX, height * 0.1, 'top_bg');
         var topBgImage = Game.cache.getImage('top_bg');
-        topBg.width = width * 0.95;
-        topBg.height = topBg.width / topBgImage.width * topBgImage.height;
+        topBg.width = parseInt(width * 0.95);
+        topBg.height = parseInt(topBg.width / topBgImage.width * topBgImage.height);
 
         topBg.anchor.setTo(0.5, 0.5);
 
+        var logo = Game.add.image(centerX, height * 0.08, 'logo');
+        var logoImage = Game.cache.getImage('logo');
+        logo.width = parseInt(width * 0.25);
+        logo.height = parseInt(logo.width / logoImage.width * logoImage.height);
+
+        logo.anchor.setTo(0.5, 0.5);
+        
+        createNumber(gameTimes, true);
+        createNumber(score);
+
+
         var goal = Game.add.image(centerX, height * 0.26, 'goal');
         var goalImage = Game.cache.getImage('goal');
-        goal.width = width * 0.5;
-        goal.height = goal.width / goalImage.width * goalImage.height;
+        goal.width = parseInt(width * 0.5);
+        goal.height = parseInt(goal.width / goalImage.width * goalImage.height);
 
         goal.anchor.setTo(0.5, 0.5);
 
         // 守门
     		var goalkeeper = Game.add.image(centerX, height * 0.34, 'goalkeeper');
         var goalkeeperImage = Game.cache.getImage('goalkeeper');
-        goalkeeper.width = width * 0.2;
-        goalkeeper.height = goalkeeper.width / goalkeeperImage.width * goalkeeperImage.height;
+        goalkeeper.width = parseInt(width * 0.2);
+        goalkeeper.height = parseInt(goalkeeper.width / goalkeeperImage.width * goalkeeperImage.height);
 
         goalkeeper.anchor.setTo(0.5, 0.5);
 
@@ -98,16 +173,7 @@
 			}
 		},
 		play: function() {
-			var stick;
-			var balls;
-			var ball;
-      var ballX = 0;
-      var ballY = 0;
-      var goal;
-			var goalkeeper;
-			var isBall = false;
-      var isballKill = true; 
-      var isScoreTween = false;
+			
 
 			this.create = function() {
 				var width = Game.world.width;
@@ -122,16 +188,8 @@
 	      }
 
 
-        timer = setInterval(function() {
-          gameTimes--;
-          createNumber(gameTimes, true);
-
-          if(gameTimes <= 0) {
-            clearInterval(timer);
-            gameEnd();
-            Game.state.start('created');
-          }
-        }, 1000)
+        timer && clearInterval(timer);
+        restartTime();
 
 				// 开启物理引擎
 				Game.physics.startSystem(Phaser.Physics.ARCADE);
@@ -141,18 +199,43 @@
         bg.width = width;
         bg.height = height;
 
-        var topBg = Game.add.image(centerX, height * 0.08, 'top_bg');
+
+        groupButton = Game.add.group();
+
+        var topButtonPause = Game.make.button(width - 35, 3, 'top_button_pause', togglePause, this,0,0,0);
+        topButtonPause.width = 35;
+        topButtonPause.height = 31;
+
+        groupButton.add(topButtonPause);
+
+        function togglePause() {
+          $('#J_gamePasuePopup').show();
+          Game.paused = true;
+          clearInterval(timer);
+        }
+
+        var topBg = Game.add.image(centerX, height * 0.1, 'top_bg');
         var topBgImage = Game.cache.getImage('top_bg');
-        topBg.width = width * 0.95;
-        topBg.height = topBg.width / topBgImage.width * topBgImage.height;
+        topBg.width = parseInt(width * 0.95);
+        topBg.height = parseInt(topBg.width / topBgImage.width * topBgImage.height);
 
         topBg.anchor.setTo(0.5, 0.5);
+
+        var logo = Game.add.image(centerX, height * 0.08, 'logo');
+        var logoImage = Game.cache.getImage('logo');
+        logo.width = parseInt(width * 0.25);
+        logo.height = parseInt(logo.width / logoImage.width * logoImage.height);
+
+        logo.anchor.setTo(0.5, 0.5);
+
+        createNumber(gameTimes, true);
+        createNumber(score);
 
         // 球门
         goal = Game.add.sprite(centerX, height * 0.26, 'goal');
         var goalImage = Game.cache.getImage('goal');
-        goal.width = width * 0.5;
-        goal.height = goal.width / goalImage.width * goalImage.height;
+        goal.width = parseInt(width * 0.5);
+        goal.height = parseInt(goal.width / goalImage.width * goalImage.height);
 
         goal.anchor.setTo(0.5, 0.5);
 
@@ -161,10 +244,9 @@
 
         // 守门
         goalkeeper = Game.add.sprite(width * 0.2, height * 0.34, 'goalkeeper');
-    		// goalkeeper = Game.add.sprite(centerX, height * 0.34, 'goalkeeper');
         var goalkeeperImage = Game.cache.getImage('goalkeeper');
-        goalkeeper.width = width * 0.2;
-        goalkeeper.height = goalkeeper.width / goalkeeperImage.width * goalkeeperImage.height;
+        goalkeeper.width = parseInt(width * 0.2);
+        goalkeeper.height = parseInt(goalkeeper.width / goalkeeperImage.width * goalkeeperImage.height);
 
         goalkeeper.anchor.setTo(0.5, 0.5);
 
@@ -176,8 +258,8 @@
 
         stick = Game.add.sprite(centerX, ballDefaultY, 'stick');
         var stickImage = Game.cache.getImage('stick');
-        stick.width = width * 0.35;
-        stick.height = stick.width / stickImage.width * stickImage.height;
+        stick.width = parseInt(width * 0.35);
+        stick.height = parseInt(stick.width / stickImage.width * stickImage.height);
 
         stick.anchor.setTo(0.3, 0.5);
      
@@ -207,8 +289,8 @@
           ball.alpha = 0;
 
         	var ballImage = Game.cache.getImage('ball');
-	        ball.width = width * 0.1;
-	        ball.height = ball.width / ballImage.width * ballImage.height;
+	        ball.width = parseInt(width * 0.1);
+	        ball.height = parseInt(ball.width / ballImage.width * ballImage.height);
 	        ball.anchor.setTo(0.5, 0.5);
 
           if(ballDefaultX < ball.width + 20){
@@ -308,35 +390,7 @@
 				Game.physics.arcade.collide(goalkeeper, balls, goalkCb);
 
 				Game.physics.arcade.collide(goal, balls, goalScore);
-			}
-
-			// 创建数
-			function createNumber(number, isleft) {
-				var width = Game.world.width;
-				var height = Game.world.height;
-        var x = Game.world.centerX * 0.52;
-
-        if(!isleft) {
-          x = width * 0.878;
-        }
-
-        if(+number <= 9) {
-          number = '0' + number;
-        }
-
-        var arr = number.toString().split('');
-
-        var number1 = Game.add.image(x, height * 0.086, 'number_' + arr[0], 'number');
-        var numberImage = Game.cache.getImage('number');
-        number1.width = width * 0.04;
-        number1.height = number1.width * 1.1;
-
-        var number2 = Game.add.image(x + number1.width + 2, height * 0.086, 'number_' + arr[1], 'number');
-        number2.width = width * 0.04;
-        number2.height = number1.width * 1.1;
-
-				
-			}			
+			}	
 
       function goalkCb(goalk, ball) {
         ball.body.velocity.y = Game.world.height;
@@ -400,6 +454,21 @@
     $('#J_gameRule').hide();
     Game.state.start('play');
   });
+
+  $('.J_buttonGoGame').on('click', function() {
+    restartTime();
+    Game.paused = false;
+    $('#J_gamePasuePopup').hide();
+  });
+
+  $('.J_buttonRefreshGame').on('click', function() {
+    gameTimes = 30;
+    Game.paused = false;
+    Game.state.restart();
+    isBall = false;
+
+    $('#J_gamePasuePopup').hide();
+  })
 
 	// Make.init();
 	Object.keys(States).map(function(key) {
