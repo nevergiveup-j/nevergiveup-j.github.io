@@ -463,6 +463,7 @@
 
   $('.J_buttonRefreshGame').on('click', function() {
     gameTimes = 30;
+    score = 0;
     Game.paused = false;
     Game.state.restart();
     isBall = false;
