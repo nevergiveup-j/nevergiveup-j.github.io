@@ -18,23 +18,22 @@ body{font:12px/21px \5FAE\8F6F\96C5\9ED1;color: #fff;}
 a, img{outline: 0 none;}
 
 </style>
-<script>
-	document.documentElement.style.height = window.innerHeight + 'px';
-</script>
 </head>
-<script src="js/quark.base-1.0.0.js"></script>
-<script src="js/zepto.min.js"></script>
-<script src="js/exif.min.js"></script>
-<script src="js/jpeg_encoder_basic.js"></script>
-<script src="js/megapix-image.js"></script>
-<body>
-<div id="canvas-wrap" style="margin: 40px auto;">
-</div>
 
-<a href="javascript:" class="button-upload-people" id="J_buttonUploadPeople">更新人物</a>
-<a href="javascript:" class="button-upload-people" id="J_buttonUploadPhoto">添加我的照片</a>
-<a href="javascript:" class="button-upload-people" id="J_buttonmakePhoto">生成图片</a>
+<body>
+<div class="video">
+        <audio id="musicid" src="./mp3/1.mp3" preload="preload">您的浏览器不支持 audio标签。</audio>
+</div>
 </body>
 </html>
 
-<script src="js/index.js"></script>
+<script>
+var music = document.getElementById('musicid');
+
+music.play();
+
+setTimeout(function() {
+	music.src = './mp3/2.mp3';
+	music.play();
+}, 8000)
+</script>
