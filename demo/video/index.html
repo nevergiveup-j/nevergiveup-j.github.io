@@ -21,6 +21,7 @@ a, img{outline: 0 none;}
 </head>
 
 <body>
+<a href="javascript:" onClick="Button()">按钮</a>
 <div class="video">
         <audio id="musicid" src="./mp3/1.mp3" preload="preload">您的浏览器不支持 audio标签。</audio>
 </div>
@@ -31,6 +32,10 @@ a, img{outline: 0 none;}
 var music = document.getElementById('musicid');
 
 music.play();
+
+function Button() {
+	music.play();
+}
 
 setTimeout(function() {
 	music.src = './mp3/2.mp3';
